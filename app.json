@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/main/index",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#354a98",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "color": "#b7b7b7",
+    "selectedColor": "#000",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "selectedindex": 1,
+    "list": [
+      {
+        "pagePath": "pages/main/index",
+        "iconPath": "images/mudidi.png",
+        "selectedIconPath": "images/mudidi-active.png",
+        "text": "目的地"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

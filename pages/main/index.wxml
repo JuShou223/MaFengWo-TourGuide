@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<nav-bar navbar-data='{{nvabarData}}' ></nav-bar>
+<scroll-view>
+  <view class="header" style='margin-top: {{height}}px'>
+    <view class='header_bdr'>
+      <view class='header_bdra'></view>
+    </view>
+    <view class='header_hd'>
+      <view class='header_title'>
+        <text>马蜂窝</text>
+        <view class='dot'></view>
+        <text>旅行地</text>
+      </view>
+      <view class="header_city">
+        <text>{{city}}</text>
+        <view class="downtips"></view>
+      </view>
+    </view>
+    <view class='header_show'>
+      <view class='header_time'>过去24小时</view>
+      <view class='header_showpeople'>
+        <text><text style='font-size:24rpx;margin-right:4px;'>5276</text>人在这里旅行</text>
+      </view>
+      <view class="header_avatars">
+        <view class='header_avatar a1'>
+          <image src="/images/avatar.png" />
+        </view>
+        <view class='header_avatar a2'>
+          <image src="/images/avatar.png" />
+        </view>
+        <view class='header_avatar a3'>
+          <image src="/images/avatar.png" />
+        </view>
+        <view class='header_avatar a4'>
+          <image src="/images/avatar.png" />
+        </view>
+        <view class='header_avatar a5'>
+          <image src="/images/avatar.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='menu_list'>
+    <view class='list {{mcurIndex===index?"on":""}}' wx:for="{{menu}}" data-mindex="{{index}}" bindtap='selected_menu' wx:key="{{index}}">{{item.name}}</view>
+  </view>
+  <view class='highlight_list'>
+    <view class='highlight {{hlcurIndex===index?"active":""}}' wx:for='{{highlight}}' bindtap='selected_hl' data-hlindex="{{index}}" data-curid="{{item.id}}" wx:key="{{index}}">{{item.name}}</view>
+  </view>
+  <view class='views'>
+    <view class='view' wx:for="{{cur_view}}">
+      <view class='view_item' wx:for="{{item}}">
+        <view class='img'>
+          <image src="{{item.imgURL}}"></image>
+        </view>
+        <view class='item_name'>{{item.name}}</view>
+        <view class='item_tourists'>{{item.tourists}}人体验过</view>
+          <view class="{{item.label.length===0?'':'label'}}" wx:for="{{item.label}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
