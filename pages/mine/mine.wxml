@@ -1,2 +1,2 @@
 <!--pages/mine/mine.wxml-->
-<nav-bar navbar-data='{{nvabarData}}' ></nav-bar>
+<nav-bar navbar-data='{{navbarData}}' ></nav-bar>

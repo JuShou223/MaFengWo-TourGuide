@@ -1,12 +1,26 @@
-<view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+<view class='nav-wrap' style='height: {{height*2 + 20}}px; background:{{navbarData.backgroundColor}};'>
+  <view style="width:100%;height100%;opacity:{{navbarData.opacity}}">
     <!-- // 导航栏 中间的标题 -->
-  <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>{{navbarData.title}}</view>
+    <view class="nav-city" style='margin-top:{{height*2 + 20-36}}px;' wx:if='{{navbarData.showMain}}'>
+      <text>{{navbarData.city}}</text>
+      <view class="downtips"></view>
+    </view>
+    <view class="section" style='top:{{height*2 + 20-34}}px;'wx:if='{{navbarData.showMain}}'>
+      <view class='search_icon'>
+        <icon type='search' size='14px'></icon>
+      </view>
+      <view class='placehold'>搜索目的地/景点/攻略</view>
+    </view>
+  </view>
+  <view wx:if="{{navbarData.title!=''}}" class='nav-title' style='line-height: {{height*2 + 44}}px;'>
+    {{navbarData.title}}
+  </view>
   <view style='display: flex; justify-content: space-around;flex-direction: column'>
-      <!-- // 导航栏  左上角的返回按钮 和home按钮 -->
-      <!-- //  其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
+    <!-- // 导航栏  左上角的返回按钮 和home按钮 -->
+    <!-- //  其中wx:if='{{navbarData.showCapsule}}' 是控制左上角按钮的显示隐藏，首页不显示 -->
     <view class='nav-capsule' style='height: {{height*2 + 44}}px;' wx:if='{{navbarData.showCapsule}}'>
-       <!-- //左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
-       <!-- //从分享进入小程序时 返回上一级按钮不应该存在 -->
+      <!-- //左上角的返回按钮，wx:if='{{!share}}'空制返回按钮显示 -->
+      <!-- //从分享进入小程序时 返回上一级按钮不应该存在 -->
       <view bindtap='_navback' wx:if='{{!share}}'>
         <image src='/images/back.png' mode='aspectFill' class='back-pre'></image>
       </view>

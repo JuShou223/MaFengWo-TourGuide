@@ -1,54 +1,106 @@
 /* 顶部要固定定位   标题要居中   自定义按钮和标题要和右边微信原生的胶囊上下对齐 */
+
 .nav-wrap {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: #354a98;
-    color: #000;
-    z-index: 9999999;
-  }
-  /* 标题要居中 */
-  .nav-title {
-    position: absolute;
-    text-align: center;
-    max-width: 400rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    font-size: 36rpx;
-    color: #2c2b2b;
-    font-weight: 600;
-  }
-  
-  .nav-capsule {
-    display: flex;
-    align-items: center;
-    margin-left: 30rpx;
-    width: 140rpx;
-    justify-content: space-between;
-    height: 100%;
-  }
-  
-  .navbar-v-line {
-    width: 1px;
-    height: 32rpx;
-    background-color: #000;
-  }
-  
-  .back-pre, .back-home {
-    width: 32rpx;
-     height: 36rpx;
-    margin-top: 4rpx;
-    padding: 10rpx;
-  }
-  .nav-capsule .back-home {
-    width: 36rpx;
-    height: 40rpx;
-    margin-top: 3rpx;
-  }
-   
+  position: fixed;
+  width: 100%;
+  top: 0;
+  color: #000;
+  z-index: 9999999;
+}
+
+/* 标题要居中 */
+
+.nav-title {
+  position: absolute;
+  text-align: center;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 18px;
+  color: #2c2b2b;
+  font-weight: 600;
+}
+
+.nav-capsule {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  width: 140rpx;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.navbar-v-line {
+  width: 1px;
+  height:16px;
+  background-color: #000;
+}
+
+.back-pre, .back-home {
+  width: 16px;
+  height: 18px;
+  margin-top: 4rpx;
+  padding: 10rpx;
+}
+
+.nav-capsule .back-home {
+  width: 18px;
+  height: 20px;
+  margin-top: 3rpx;
+}
+
+.downtips {
+  height: 0px;
+  float: left;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000;
+  margin-left: 2rpx;
+}
+/* 
+view {
+  border: 1px solid #000;
+} */
+
+.nav-city {
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.section {
+  font-size: 12px;
+  background-color: #f5f8f8;
+  position: absolute;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 15px;
+  text-align: center;
+  width: 360rpx;
+  white-space: nowrap;
+  right: 20px;
+  left: 0;
+  margin: auto;
+}
+.search_icon{
+  margin-left: 12px;
+  margin-top: 9px;
+  float: left;
+  width: 14px;
+  height: 14px;
+}
+.placehold{
+  float: left;
+  margin-top: 7px;
+  margin-left: 5px;
+  color: #717476;
+}

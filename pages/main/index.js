@@ -78,13 +78,29 @@ Page({
     mcurIndex:0,
     curid:"jingdian",
     cur_view: [],
-    nvabarData: {
-      showCapsule: 0, //是否显示左上角图标   1表示显示    0表示不显示
+    navbarData: {
+      showCapsule:0, //是否显示左上角图标   1表示显示    0表示不显示
       title: '', //导航栏 中间的标题
+      backgroundColor: '#354a98',//'#354a98'
+      city:'南昌',
+      opacity:0,
+      showMain:1
     },
 
     // 此页面 页面内容距最顶部的距离
     height: app.globalData.height * 2 + 20 ,   
+  },
+  scroll(e){
+    let opacity=0;
+    if (e.detail.scrollTop < 80 && e.detail.scrollTop>10){
+      opacity = (e.detail.scrollTop/160).toFixed(1);
+    } else if (e.detail.scrollTop>80){
+      opacity=1;
+    }
+    this.data.navbarData.opacity=opacity;
+    this.setData({
+      navbarData:this.data.navbarData
+    })
   },
   selected_hl(e){
     let curid = e.target.dataset.curid;

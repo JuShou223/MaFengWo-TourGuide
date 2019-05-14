@@ -45,6 +45,7 @@ App({
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
+        console.log(res)
       }
     })
   },
