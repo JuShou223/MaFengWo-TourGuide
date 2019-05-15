@@ -1,14 +1,16 @@
 {
   "pages": [
+    "pages/destination/destination",
     "pages/main/index",
     "pages/mine/mine"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#354a98",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#b7b7b7",

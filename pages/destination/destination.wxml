@@ -1,0 +1,17 @@
+<!-- pages/destination/destination.wxml -->
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class="destination">
+    <view class="des_head" style='margin-top: {{height}}px'>
+        <view class="des_search">
+           <view class="des_search_icon">
+               <icon type='search' size='30rpx' color="#000000"></icon>
+            </view> 
+           搜索目的地
+        </view>
+    </view>
+    <view class="des_continents">
+        <view class="des_continent" wx:for="{{continents}}">
+            {{item.name}}
+        </view>
+    </view>
+</view>

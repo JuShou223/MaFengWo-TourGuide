@@ -73,6 +73,32 @@ Page({
         list_id: ["jingdian","gouwu"]
       },
     ],
+    travel_guide:[
+      {
+        title:'南昌黄马银杏林攻略',
+        read:3036,
+        collects:50,
+        imgurl:'/images/yingxinlin.jpeg'
+      },
+      {
+        title: '南昌美食有什么',
+        read: 8036,
+        collects: 908,
+        imgurl:'/images/meishi.jpg'
+      },
+      {
+        title: '我眼中的南昌：有情、有义、有玩、有展、有味道',
+        read: 13036,
+        collects: 1502,
+        imgurl:'/images/nancheng.jpg'
+      },
+      {
+        title: '南昌凤凰沟攻略',
+        read: 4036,
+        collects: 39,
+        imgurl: '/images/fenghuanggou.jpg'
+      }
+    ],
     city:'南昌',
     hlcurIndex:0,
     mcurIndex:0,
@@ -90,11 +116,13 @@ Page({
     // 此页面 页面内容距最顶部的距离
     height: app.globalData.height * 2 + 20 ,   
   },
+
+  // 当页面滚动时，改变顶部导航栏的可见度
   scroll(e){
     let opacity=0;
-    if (e.detail.scrollTop < 80 && e.detail.scrollTop>10){
+    if (e.detail.scrollTop < 60){
       opacity = (e.detail.scrollTop/160).toFixed(1);
-    } else if (e.detail.scrollTop>80){
+    } else{
       opacity=1;
     }
     this.data.navbarData.opacity=opacity;
@@ -102,6 +130,7 @@ Page({
       navbarData:this.data.navbarData
     })
   },
+
   selected_hl(e){
     let curid = e.target.dataset.curid;
     let newView=this.data.view.filter(e=>{return e.list_id.filter(e1=>e1===curid).length>0});
@@ -116,7 +145,6 @@ Page({
       }
       cur_view.push(temp);
     }
-    console.log(cur_view);
     this.setData({
       hlcurIndex:e.target.dataset.hlindex,
       curid:curid,
