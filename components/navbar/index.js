@@ -28,12 +28,14 @@ Component({
   methods: {
   // 返回上一页面
     _navback() {
-      wx.navigateBack()
+      wx.navigateBack({
+        delta: 1
+      })
     },
   //返回到首页
     _backhome() {
       wx.switchTab({
-        url: '/pages/index/index',
+        url: '/pages/main/index',
       })
     }
   }

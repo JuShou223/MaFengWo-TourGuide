@@ -1,17 +1,35 @@
 <!-- pages/destination/destination.wxml -->
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<view class="destination">
-    <view class="des_head" style='margin-top: {{height}}px'>
-        <view class="des_search">
-           <view class="des_search_icon">
-               <icon type='search' size='30rpx' color="#000000"></icon>
-            </view> 
-           搜索目的地
-        </view>
+<view class="destination" style='top: {{height}}px'>
+  <view class="des_head">
+    <view class="des_search">
+      <view class="des_search_icon">
+        <icon type='search' size='30rpx' color="#000000"></icon>
+      </view>
+      搜索目的地
     </view>
-    <view class="des_continents">
-        <view class="des_continent" wx:for="{{continents}}">
-            {{item.name}}
-        </view>
+  </view>
+  <view class="des_continents">
+    <view class="des_continent {{curIndex===index?'add':''}}}" wx:for="{{continents}}" wx:for-item="continent" wx:key='{{index}}' data-index='{{index}}' bindtap="switch_des">
+      <view class='des_continent_name {{curIndex===index?"on":""}}}'>{{continent.name}}</view>
     </view>
+  </view>
+  <scroll-view class='des_cities' scroll-y>
+    <block wx:if="{{curIndex==0}}">
+      <view class="des_cities_content" wx:for="{{continents[curIndex].cities}}" wx:key="{{index}}" wx:for-item="des_city">
+        <view class="des_cities_title">{{des_city.title}}</view>
+        <view class="des_city" wx:for="{{des_city.city}}" wx:key="{{index}}">
+          {{item.city_name}}
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="des_area" wx:for="{{continents[curIndex].cities}}" wx:key="{{index}}" wx:for-item="des_city">
+          <view class="des_img">
+            <image src="{{des_city.img}}" />
+          </view>
+          <view class="des_city_name">{{des_city.city_name}}</view>
+        </view>
+    </block>
+  </scroll-view>
 </view>

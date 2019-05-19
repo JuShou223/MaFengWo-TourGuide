@@ -1,5 +1,5 @@
-// pages/mine/mine.js
-const app = getApp()
+// pages/search/search.js
+const app=getApp()
 Page({
 
   /**
@@ -7,14 +7,14 @@ Page({
    */
   data: {
     navbarData: {
-      showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
+      showCapsule:1, //是否显示左上角图标   1表示显示    0表示不显示
       title: '马蜂窝旅游', //导航栏 中间的标题
-      backgroundColor:"#fff",
-      showMian:0
+      backgroundColor: '#ffffff',//'#354a98'
+      city:'',
+      opacity:0,
+      showMain:0
     },
-
-    // 此页面 页面内容距最顶部的距离
-    height: app.globalData.height * 2 + 20 ,   
+    height: app.globalData.height * 2 + 20,
   },
 
   /**

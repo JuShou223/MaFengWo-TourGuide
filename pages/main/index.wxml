@@ -15,8 +15,10 @@
           <text>旅行地</text>
         </view>
         <view class="header_city">
-          <text>{{city}}</text>
-          <view class="downtips"></view>
+          <navigator url="/pages/destination/destination">
+            <text>{{city}}</text>
+            </navigator>
+            <view class="downtips"></view>
         </view>
       </view>
       <view class='header_show'>
@@ -57,31 +59,31 @@
         </view>
       </view>
       <view class='views'>
-        <view class='view' wx:for="{{cur_view}}">
-          <view class='view_item' wx:for="{{item}}">
+        <view class='view' wx:for="{{cur_view}}" wx:key='{{index}}'>
+          <view class='view_item' wx:for="{{item}}" wx:key='{{index}}'>
             <view class='img'>
               <image src="{{item.imgURL}}"></image>
             </view>
             <view class='item_name'>{{item.name}}</view>
             <view class='item_tourists'>{{item.tourists}}人体验过</view>
-            <view class="{{item.label.length===0?'':'label'}}" wx:for="{{item.label}}">{{item}}</view>
+            <view class="{{item.label.length===0?'':'label'}}" wx:for="{{item.label}}" wx:key="{{index}}">
+              {{item}}
+            </view>
           </view>
         </view>
       </view>
     </view>
     <view class='travel_guide' wx:if="{{mcurIndex===1}}">
-      <view class='travel_guide_content' wx:for="{{travel_guide}}">
+      <view class='travel_guide_content' wx:for="{{travel_guide}}"  wx:key="{{index}}">
         <view class='tg_img'>
           <image src='{{item.imgurl}}'></image>
         </view>
         <view class='tg_info'>
           <view class='tg_info_title'>{{item.title}}</view>
           <view class='tg_data'>
-            <view class='tg_info_read'>{{item.read}}浏览
-            </view>
+            <view class='tg_info_read'>{{item.read}}浏览</view>
             <view class='dot' style='background-color: #000;border:2rpx solid #000; margin:0 5rpx'></view>
-            <view class='tg_info_collects'>{{item.collects}}收藏
-            </view>
+            <view class='tg_info_collects'>{{item.collects}}收藏</view>
           </view>
         </view>
       </view>

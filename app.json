@@ -1,15 +1,10 @@
 {
   "pages": [
-    "pages/destination/destination",
-    "pages/main/index",
-    "pages/mine/mine"
-   
+    "pages/search/search",
+    "pages/mine/mine",
+    "pages/main/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#354a98",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
   "tabBar": {
@@ -17,7 +12,6 @@
     "selectedColor": "#000",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "selectedindex": 1,
     "list": [
       {
         "pagePath": "pages/main/index",

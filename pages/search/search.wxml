@@ -1,0 +1,13 @@
+<!--pages/search/search.wxml-->
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class='content' style='margin-top:{{height}}px'>
+  <view class='search-bar'>
+    <view class='search-icon'>
+      <icon type='search' size='30rpx'></icon>
+    </view>
+    <view class='input'>
+      <input style='width:500rpx' confirm-type='search' focus='true' placeholder="搜索目的地/景点/攻略"></input>
+    </view>
+  </view>
+  <view class='cancle'>取消</view>
+</view>

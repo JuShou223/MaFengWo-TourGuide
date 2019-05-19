@@ -1,7 +1,13 @@
 /* pages/destination/destination.wxss */
-page,.destination,image{
+page,.destination{
     height: 100%;
-    width: 100%;
+}
+image{
+  width:100%;
+  height: 100%;
+}
+.destination{
+  position: fixed;
 }
 .des_head{
     height: 80rpx;
@@ -25,13 +31,62 @@ page,.destination,image{
  }
 .des_continents{
     width: 180rpx;
-    border-bottom: 2rpx solid #eeeeee;
     border-right: 2rpx solid #eeeeee;
     height: 100%;
+    float: left;
 }
 .des_continent{
-  text-align: center;
-  padding: 20rpx 0;
-  width: 100%;
+  overflow: hidden;
   border-bottom: 2rpx solid #eeeeee;
+  background-color: #f9f9f9;
+}
+.des_continent_name{
+  text-align: center;
+  width: 100%; 
+  margin: 24rpx 0;
+  font-size: 32rpx;
+}
+.add{
+  background-color: #fff;
+}
+.on{
+  font-weight: bold;
+  border-left: 6rpx solid #ffdc1e; 
+}
+.des_cities{
+  width:560rpx;
+  float: right;
+  height:100%;
+}
+.des_cities_content{
+  overflow: hidden;
+  margin-left: 32rpx;
+}
+.des_cities_title{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 16rpx
+}
+.des_city{
+  font-size: 30rpx;
+  width: 140rpx;
+  padding: 10rpx 0;
+  text-align: center;
+  float: left;
+  background-color: #eeeeee;
+  margin:0 34rpx 18rpx 0  ;
+  border-radius: 5rpx;
+}
+.des_img{
+  width: 140rpx;
+  height: 140rpx;
+}
+.des_area{
+  float: left;
+  margin:10rpx 0 0 36rpx;
+}
+.des_city_name{
+  font-size: 30rpx;
+  text-align: center;
+  padding: 10rpx 0;
 }
