@@ -1,13 +1,15 @@
 <!-- pages/destination/destination.wxml -->
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<view class="destination" style='top: {{height}}px'>
+<view class="destination" style='margin-top: {{height}}px'>
   <view class="des_head">
+  <navigator url="/pages/search/search">
     <view class="des_search">
       <view class="des_search_icon">
         <icon type='search' size='30rpx' color="#000000"></icon>
       </view>
       搜索目的地
     </view>
+  </navigator>
   </view>
   <view class="des_continents">
     <view class="des_continent {{curIndex===index?'add':''}}}" wx:for="{{continents}}" wx:for-item="continent" wx:key='{{index}}' data-index='{{index}}' bindtap="switch_des">

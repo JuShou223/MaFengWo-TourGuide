@@ -7,12 +7,14 @@
         <view class="downtips"></view>
       </view>
     </navigator>
+    <navigator url="/pages/search/search">
     <view class="section" style='top:{{height*2 + 20-34}}px;' wx:if='{{navbarData.showMain}}'>
       <view class='search_icon'>
         <icon type='search' size='14px'></icon>
       </view>
       <view class='placehold'>搜索目的地/景点/攻略</view>
     </view>
+    </navigator>
   </view>
   <view wx:if="{{navbarData.title!=''}}" class='nav-title' style='line-height: {{height*2 + 44}}px;'>
     {{navbarData.title}}

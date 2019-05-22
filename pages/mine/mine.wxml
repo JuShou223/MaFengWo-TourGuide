@@ -1,2 +1,16 @@
 <!--pages/mine/mine.wxml-->
 <nav-bar navbar-data='{{navbarData}}' ></nav-bar>
+<view class='mine' style='margin-top:{{height}}px'>
+  <view class='userInfo'>
+    <view class='user_avatar'>
+      <image src='/images/avatar.png'></image>
+    </view>
+    <view class='user_name'>{{userInfo.nickName}}</view>
+    <view class='user_level'><view class='user_level_bg'>1.LV</view></view>
+  </view>
+  <view class='collection'>
+    <view class='title'>我的收藏</view>
+    <view class='collection_types'><view class='collection_type  {{curIndex===index?"on":""}}' wx:for="{{collection_type}}" data-index="{{index}}" bindtap='selected'>{{item.name}}</view></view>
+    <view class='collection_content' wx:for="{{collection_type.content}}"></view>
+  </view>
+</view>

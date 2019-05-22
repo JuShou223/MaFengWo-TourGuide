@@ -23,7 +23,7 @@
   margin: auto;
   font-size: 18px;
   color: #2c2b2b;
-  font-weight: 600;
+  font-weight: bold;
 }
 .nav{
   position: absolute;

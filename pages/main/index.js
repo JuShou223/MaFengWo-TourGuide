@@ -35,7 +35,7 @@ Page({
         imgURL: "/images/nanchang0006.jpg",
         tourists: 221,
         label: ["4A景区", "亲子游"],
-        list_id: ["jingdian"]
+        list_id: ["jingdian","meishi"]
       },
       {
         name:"八一大桥",

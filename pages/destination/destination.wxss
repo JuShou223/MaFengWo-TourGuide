@@ -55,8 +55,9 @@ image{
 }
 .des_cities{
   width:560rpx;
-  float: right;
-  height:100%;
+  height:100%; 
+  position: absolute;
+  left: 180rpx;
 }
 .des_cities_content{
   overflow: hidden;

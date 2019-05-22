@@ -1,1 +1,59 @@
 /* pages/mine/mine.wxss */
+page,.mine{
+  height: 100%;
+  overflow: hidden;
+}
+.userInfo{
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+.user_avatar{
+  width: 120rpx;
+  height: 120rpx;
+  float: left;
+  margin-left: 40rpx;
+}
+.user_name{
+  float: left;
+  width: 55%;
+  margin-left: 30rpx;
+  font-size: 45rpx;
+  padding: 5rpx;
+}
+.user_level{
+  float: left;
+  width: 55%;
+  font-size: 20rpx;
+  margin-left: 30rpx;
+}
+.user_level_bg{
+  float: left;
+  background-color: #ffdc25;
+  padding: 5rpx 15rpx;
+  border-radius: 5rpx; 
+}
+.collection{
+  margin-left:40rpx; 
+}
+.collection .title{
+  margin-top:60rpx;
+  margin-bottom: 10rpx;
+}
+.collection_types{
+  overflow: hidden;
+  width: 670rpx;
+  border-bottom:1px solid #e3e6e8;
+}
+
+.collection_type{
+  padding: 20rpx 0; 
+  float: left;
+  font-size: 32rpx;
+  margin-right: 40rpx;
+}
+.collection_type.on{
+  border-bottom: 1px solid #ffe038;
+}
+/* view{
+  border: 2rpx solid #000;
+} */

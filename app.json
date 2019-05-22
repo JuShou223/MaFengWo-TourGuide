@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/mine/mine",
     "pages/main/index"
   ],
   "window": {
+    "navigationBarTextStyle":"black",
     "navigationStyle": "custom"
   },
   "tabBar": {
