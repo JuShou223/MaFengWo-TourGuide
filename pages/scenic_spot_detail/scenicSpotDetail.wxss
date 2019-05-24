@@ -1,0 +1,142 @@
+/* pages/scenic_spot_detail/scenicSpotDetail.wxss */
+page,.scenicSpotDetail{
+  height: 100%;
+}
+.head{
+  overflow: hidden;
+  margin-left: 30rpx;
+}
+.location_type{
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  color: #a57329;
+}
+.mid_spot {
+  width: 2rpx;
+  height: 2rpx;
+  border: 2rpx solid #a57329;
+  border-radius: 50%;
+  margin-left: 2rpx;
+  background-color: #a57329;
+}
+.scenicSpotName{
+  font-weight:600;
+  font-size: 42rpx;
+}
+.scenicSpotLabels{
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+.scenicSpotLabel{
+  color: #737376;
+  float: left;
+  font-size: 18rpx;
+  border: 1px solid #737376;
+  padding: 0 6rpx 4rpx 6rpx;
+  margin-left: 6rpx;
+}
+.showUsers{
+  overflow: hidden;
+  width: 100%;
+  margin-top: 30rpx ;
+}
+.usersNum{
+  padding-left: 30rpx;
+}
+.gxdate{
+  float: right;
+  margin-right:80rpx; 
+  font-size: 20rpx;
+  line-height: 50rpx;
+  color: #717476;
+}
+.showImgs{
+  margin-top:20rpx; 
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.showImg{
+  position: relative;
+  overflow: hidden;
+  height: 230rpx;
+  display: inline-block;
+  margin-right: 8rpx;
+}
+.showImg.first{
+  margin-left: 30rpx;
+}
+.img{
+  width: 280rpx;
+  height:180rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+}
+image{
+  width: 100%;
+  height:100%;
+}
+.avatar{
+  position: absolute;
+  width: 60rpx;
+  height:60rpx;
+  top: 160rpx;
+  border:1px solid #fff;
+  border-radius: 50%;
+  left: 10rpx;
+}
+.info{
+  margin-left: 80rpx;
+  font-size: 24rpx;
+  padding: 5rpx;
+  color: #717476;
+}
+.htg_title{
+  margin:50rpx 0 30rpx 30rpx; 
+  font-size: 34rpx;
+}
+.travel_guide{
+  border-radius: 10rpx;
+  position: relative;
+  width: 270rpx;
+  background-color: #f5f8f8;
+  padding:30rpx; 
+  display: inline-block;
+  margin-left: 30rpx;
+  margin-bottom:20rpx; 
+}
+.travel_guide_title{
+  font-size: 24rpx;
+}
+.travel_guide_liulan{
+  font-size: 22rpx;
+  color: #979495;
+}
+.travel_guide.first{
+  background-color: #ffece9;
+}
+.travel_guide_label{
+  font-size: 20rpx;
+  position: absolute;
+  top: -22rpx;
+  left: 20rpx;
+  padding: 5rpx 20rpx;
+  background-color: #ff508e;
+  color: #fff;
+}
+.tri{
+  height: 0px;
+  border-right: 16rpx solid transparent;
+  border-top: 16rpx solid #ff508e;
+  position: absolute;
+  top: 10rpx;
+  left: 20rpx;
+}

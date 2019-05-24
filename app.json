@@ -1,10 +1,13 @@
 {
   "pages": [
+    "pages/main/index",
     "pages/mine/mine",
-    "pages/main/index"
+    "pages/destination/destination",
+    "pages/search/search",
+    "pages/scenic_spot_detail/scenicSpotDetail"
   ],
   "window": {
-    "navigationBarTextStyle":"black",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
   "tabBar": {

@@ -2,7 +2,7 @@
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
 <view class="destination" style='margin-top: {{height}}px'>
   <view class="des_head">
-  <navigator url="/pages/search/search">
+  <navigator url="/pages/search/search" hover-class="none">
     <view class="des_search">
       <view class="des_search_icon">
         <icon type='search' size='30rpx' color="#000000"></icon>

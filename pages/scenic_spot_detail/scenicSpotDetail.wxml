@@ -1,0 +1,113 @@
+<!--pages/scenic_spot_detail/scenicSpotDetail.wxml-->
+<nav-bar navbar-data='{{navbarData}}'></nav-bar>
+<view class='scenicSpotDetail' style='margin-top:{{height}}px'>
+  <view class='head'>
+    <view class='location_type'>
+      <text>三亚</text>
+      <view class='mid_spot'></view>
+      <text>{{detail.list_name}}</text>
+    </view>
+    <view class='scenicSpotName'>
+      <text>{{detail.name}}</text>
+    </view>
+    <view class='scenicSpotLabels'>
+      <view class='{{detail.label.length===0?"":"scenicSpotLabel"}}' wx:for="{{detail.label}}">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='showUsers'>
+    <view class='usersNum'>
+      <text style='font-size:40rpx;'>1738</text>
+      <text>人在当地</text>
+      <text class='gxdate'>更新于1天前</text>
+   </view>
+    <scroll-view scroll-x="true"class='showImgs' style='height:230rpx;width:100%;'>
+        <view class='showImg first'>
+          <view class='img'>
+            <image src='/images/heilongjiang.jpeg'></image>
+          </view>
+          <view class='info'>
+            <text>山鸡从良</text>
+          </view>
+          <view class='avatar'>
+            <image src='/images/avatar.png'></image>
+          </view>
+        </view>
+        <view class='showImg'>
+          <view class='img'>
+            <image src='/images/heilongjiang.jpeg'></image>
+          </view>
+          <view class='info'>
+            <text>山鸡从良</text>
+          </view>
+          <view class='avatar'>
+            <image src='/images/avatar.png'></image>
+          </view>
+        </view>
+        <view class='showImg'>
+          <view class='img'>
+            <image src='/images/heilongjiang.jpeg'></image>
+          </view>
+          <view class='info'>
+            <text>山鸡从良</text>
+          </view>
+          <view class='avatar'>
+            <image src='/images/avatar.png'></image>
+          </view>
+        </view>
+        <view class='showImg'>
+          <view class='img'>
+            <image src='/images/heilongjiang.jpeg'></image>
+          </view>
+          <view class='info'>
+            <text>山鸡从良</text>
+          </view>
+          <view class='avatar'>
+            <image src='/images/avatar.png'></image>
+          </view>
+        </view>
+        <view class='showImg'>
+          <view class='img'>
+            <image src='/images/heilongjiang.jpeg'></image>
+          </view>
+          <view class='info'>
+            <text>山鸡从良</text>
+          </view>
+          <view class='avatar'>
+            <image src='/images/avatar.png'></image>
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+  <view class='hot_travel_guide'>
+    <view class='htg_title'>
+      <text>热门攻略</text>
+    </view>
+    <view class='travel_guide first'>
+    <view class='travel_guide_label'>攻略TOP1</view>
+    <view class='tri'></view>
+      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
+      <view class='travel_guide_liulan'>256浏览</view>
+    </view>
+    <view class='travel_guide'>
+      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
+      <view class='travel_guide_liulan'>256浏览</view>
+    </view>
+    <view class='travel_guide'>
+      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
+      <view class='travel_guide_liulan'>256浏览</view>
+    </view>
+    <view class='travel_guide'>
+    <view class='travel_guide_label' style='background-color:#01c689'>大家都在问</view>
+    <view class='tri'style='border-top: 16rpx solid #01c689;'></view>
+      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
+      <view class='travel_guide_liulan'>256浏览</view>
+    </view>
+  </view>
+  <!-- <view class='havingFunDetail'>
+    <view class='hfd_title'>景点玩乐详情</view>
+    <view class='navigation'></view>
+  </view> -->
+</view>
+<bottom bottom-data="{{bottomData}}"></bottom>

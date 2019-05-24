@@ -1,0 +1,47 @@
+<!--components/bottom/bottom.wxml-->
+<view class='bottombar' style='height: {{(height*2 + 20)*2}}rpx;'>
+  <view class='content' wx:if="{{bottomData.showCollect}}">
+    <view class='dw'>
+      <view class='item collect'>
+        <view class='img'>
+          <block wx:if="{{bottomData.isCollect}}">
+          <image src='/images/stars.png'></image>
+          </block>
+          <block wx:else>
+          <image src='/images/stars1.png'></image>
+          </block>
+        </view>
+        <view class='text'>
+          <text>{{bottomData.collectors}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='content' wx:if=" {{bottomData.showCamera}} ">
+    <view class='dw'>
+      <view class='item camera'>
+        <view class='img'>
+          <image src='/images/camera.png'></image>
+        </view>
+        <view class='text'>
+          <text>发照片</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='content'>
+    <view class='dw' style='margin-top:-29rpx'>
+      <view class='item share'>
+
+        <view class='img'>
+          <image src='/images/wx.png'></image>
+        </view>
+        <view class='text'>
+          <text style='color:#fff'>分享</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

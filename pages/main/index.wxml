@@ -15,18 +15,17 @@
           <text>旅行地</text>
         </view>
         <view class="header_city">
-          <navigator url="/pages/destination/destination">
+          <navigator url="/pages/destination/destination" hover-class="none">
             <text>{{city}}</text>
-            </navigator>
-            <view class="downtips"></view>
+          </navigator>
+          <view class="downtips"></view>
         </view>
       </view>
       <view class='header_show'>
         <view class='header_time'>过去24小时</view>
         <view class='header_showpeople'>
-          <text>
-            <text style='font-size:24rpx;margin-right:4px;'>5276</text>人在这里旅行
-          </text>
+          <text style='font-size:24rpx;margin-right:4px;'>5276</text>
+          <text>人在这里旅行</text>
         </view>
         <view class="header_avatars">
           <view class='header_avatar a1'>
@@ -60,7 +59,7 @@
       </view>
       <view class='views'>
         <view class='view' wx:for="{{cur_view}}" wx:key='{{index}}'>
-          <view class='view_item' wx:for="{{item}}" wx:key='{{index}}'>
+          <view class='view_item' wx:for="{{item}}" wx:key='{{index}}' bindtap='goScenicSpotDetail' data-name="{{item.name}}">
             <view class='img'>
               <image src="{{item.imgURL}}"></image>
             </view>
@@ -74,7 +73,7 @@
       </view>
     </view>
     <view class='travel_guide' wx:if="{{mcurIndex===1}}">
-      <view class='travel_guide_content' wx:for="{{travel_guide}}"  wx:key="{{index}}">
+      <view class='travel_guide_content' wx:for="{{travel_guide}}" wx:key="{{index}}">
         <view class='tg_img'>
           <image src='{{item.imgurl}}'></image>
         </view>

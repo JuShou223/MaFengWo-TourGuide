@@ -166,7 +166,7 @@ border: 1px solid black;
 .view{
   width: 720rpx;
   margin-bottom: 30rpx;
-  margin-left: 20rpx;
+  margin-left: 30rpx;
 }
 .view_item{
   width: 335rpx;
@@ -216,4 +216,12 @@ border: 1px solid black;
   font-size: 22rpx;
   margin: 20rpx 0;
   align-items: center;
+}
+.main_scro{
+
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }

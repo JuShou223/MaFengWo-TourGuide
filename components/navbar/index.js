@@ -20,7 +20,7 @@ Component({
       share: app.globalData.share
     })
     // 定义导航栏的高度   方便对齐
-    console.log(app.globalData)
+    // console.log(app.globalData)
     this.setData({
       height: app.globalData.height
     })
