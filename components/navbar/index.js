@@ -24,6 +24,15 @@ Component({
     this.setData({
       height: app.globalData.height
     })
+    const detail = wx.getStorageSync('detail')
+    if(detail){
+    const name = detail.name;
+    this.data.navbarData.title = name;
+    let navbarData = this.data.navbarData;
+    this.setData({
+      navbarData
+    })
+    }
   },
   methods: {
   // 返回上一页面

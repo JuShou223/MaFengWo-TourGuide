@@ -20,13 +20,13 @@
     <block wx:if="{{curIndex==0}}">
       <view class="des_cities_content" wx:for="{{continents[curIndex].cities}}" wx:key="{{index}}" wx:for-item="des_city">
         <view class="des_cities_title">{{des_city.title}}</view>
-        <view class="des_city" wx:for="{{des_city.city}}" wx:key="{{index}}">
+        <view class="des_city" wx:for="{{des_city.city}}" wx:key="{{index}}" bindtap='goMain' data-city_name="{{item.city_name}}">
           {{item.city_name}}
         </view>
       </view>
     </block>
     <block wx:else>
-      <view class="des_area" wx:for="{{continents[curIndex].cities}}" wx:key="{{index}}" wx:for-item="des_city">
+      <view class="des_area" wx:for="{{continents[curIndex].cities}}" wx:key="{{index}}" wx:for-item="des_city" bindtap='goMain' data-city_name="{{des_city.city_name}}">
           <view class="des_img">
             <image src="{{des_city.img}}" />
           </view>

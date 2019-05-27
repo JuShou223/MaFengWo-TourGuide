@@ -16,7 +16,7 @@
         </view>
         <view class="header_city">
           <navigator url="/pages/destination/destination" hover-class="none">
-            <text>{{city}}</text>
+            <text>{{curDes.name}}</text>
           </navigator>
           <view class="downtips"></view>
         </view>
@@ -73,7 +73,7 @@
       </view>
     </view>
     <view class='travel_guide' wx:if="{{mcurIndex===1}}">
-      <view class='travel_guide_content' wx:for="{{travel_guide}}" wx:key="{{index}}">
+      <view class='travel_guide_content' wx:for="{{curDes.travel_guide}}" wx:key="{{index}}">
         <view class='tg_img'>
           <image src='{{item.imgurl}}'></image>
         </view>

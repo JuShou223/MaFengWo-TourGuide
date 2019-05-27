@@ -43,6 +43,7 @@ page,.mine{
   overflow: hidden;
   width: 670rpx;
   border-bottom:1px solid #e3e6e8;
+  margin-bottom: 30rpx;
 }
 
 .collection_type{
@@ -53,6 +54,55 @@ page,.mine{
 }
 .collection_type.on{
   border-bottom: 1px solid #ffe038;
+}
+.img{
+  width: 190rpx;
+  height: 130rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+  float: left;
+}
+.view_name{
+  margin-top: 5rpx;
+  font-size: 32rpx;
+  float: left;
+  width: 300rpx;
+}
+.view_ename{
+  font-size: 20rpx;
+  float: left;
+  width: 300rpx;
+}
+.label{
+  position: absolute;
+  width: 300rpx;
+  bottom: 32rpx;
+  left: 200rpx;
+}
+.des_icon{
+  width: 25rpx;
+  height: 25rpx;
+  float: left;
+}
+.cityName{
+  font-size: 22rpx;
+  padding: 12rpx 0 5rpx 0;
+}
+.collection_content{
+  width: 670rpx;
+  overflow: hidden;
+  border-bottom: 1px solid #e3e6e8;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.date{
+  font-size: 20rpx;
+  position: absolute;
+  bottom: 25rpx;
+  right: 0;
+  color: #6e757b;
 }
 /* view{
   border: 2rpx solid #000;

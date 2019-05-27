@@ -645,6 +645,13 @@ Page({
     })
     console.log(e)
   },
+  goMain(e){
+    const city_name = e.currentTarget.dataset.city_name;
+    wx.setStorageSync('city_name', city_name)
+    wx.switchTab({
+      url: '/pages/main/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

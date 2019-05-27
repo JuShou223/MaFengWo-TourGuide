@@ -9,13 +9,13 @@ Page({
     navbarData: {
       showCapsule: 0, //是否显示左上角图标   1表示显示    0表示不显示
       title: '马蜂窝旅游', //导航栏 中间的标题
-      backgroundColor:"#fff",
-      showMian:0
+      backgroundColor: "#fff",
+      showMian: 0
     },
-    collection_type:[
+    collection_type: [
       {
-        name:'全部',
-        content:[]
+        name: '全部',
+        content: []
       },
       {
         name: '游记',
@@ -38,13 +38,13 @@ Page({
         content: []
       }
     ],
-    curIndex:0,
-    userInfo:{},
-    hasUserInfo:false,
+    curIndex: 0,
+    userInfo: {},
+    hasUserInfo: false,
     // 此页面 页面内容距最顶部的距离
-    height: app.globalData.height * 2 + 20 ,   
+    height: app.globalData.height * 2 + 20,
   },
-  selected(e){
+  selected(e) {
     let curIndex = e.currentTarget.dataset.index;
     this.setData({
       curIndex,
@@ -93,7 +93,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let collects = wx.getStorageSync('collects');
+    const details = wx.getStorageSync('details');
+    if (collects) {
+      this.data.collection_type[0].content = collects;
+    }
+    if (details) {
+      for (let detail of details) {
+        if (!detail.isCollect) {
+          for (let i = 0; i < this.data.collection_type[0].content.length; i++) {
+            if (this.data.collection_type[0].content[i].name == detail.name) {
+              this.data.collection_type[0].content.splice(i, 1);
+            }
+          }
+        }
+      }
+    }
+    const collection_type = this.data.collection_type;
+    this.setData({
+      collection_type,
+    })
+    wx.removeStorageSync('collects')
   },
 
   /**
@@ -107,7 +127,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
@@ -129,6 +149,46 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  gotoScenicSpotDetail(e) {
+    let index = 0;
+    for (let i = 0; i < this.data.collection_type[0].content.length; i++) {
+      if (this.data.collection_type[0].content[i].name === e.currentTarget.dataset.name) {
+        let index = i;
+        const {
+          name,
+          collectors,
+          isCollect,
+          label,
+          list_name,
+          tourists
+        } = this.data.collection_type[0].content[index];
+        let city = this.data.collection_type[0].content[index].city_name;
+        let details = wx.getStorageSync('details');
+        if (!details) {
+          details = [];
+        }
+        const detail = {
+          name,
+          collectors,
+          isCollect
+        };
+        for (let i in details) {
+          if (details[i].name == detail.name) {
+            details[i] = detail;
+            let index = i;
+            break;
+          }
+        }
+        if (index == 0) {
+          details.push(detail);
+        }
+        wx.setStorageSync("details", details)
+        wx.navigateTo({
+          url: `/pages/scenic_spot_detail/scenicSpotDetail?name=${name}&collectors=${collectors}&isCollect=${isCollect}&label=${label}&list_name=${list_name}&tourists=${tourists}&city=${city}`,
+        })
+      }
+    }
   },
   getUserInfo: function (e) {
     console.log(e)

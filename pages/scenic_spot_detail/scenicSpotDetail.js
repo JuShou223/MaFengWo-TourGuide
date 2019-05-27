@@ -9,8 +9,6 @@ Page({
     bottomData:{
       showCollect:1, //是否显示收藏图标
       showCamera:1,  //是否显示照相图标
-      isCollect: false,
-      collectors: 0
     },
     navbarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
@@ -19,6 +17,7 @@ Page({
       showMian: 0,
     },
     detail:{},
+    city:'',
     height: app.globalData.height * 2 + 20,   
   },
 
@@ -26,13 +25,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const label = options.label === "" ? [] : options.label.split(",")
-    const detail = { name: options.name, collectors: options.collectors, isCollect: options.isCollect, label, list_name: options.list_name, tourists: options.tourists };
-    this.data.bottomData.isCollect = detail.isCollect;
-    this.data.bottomData.collectors = detail.collectors;
-    this.setData({
-      detail,
-    })
+      const label = options.label === "" ? [] : options.label.split(",")
+      const city = options.city
+      const detail = { name: options.name, collectors: options.collectors, isCollect: options.isCollect, label, list_name: options.list_name, tourists: options.tourists };
+      this.data.bottomData.isCollect = detail.isCollect;
+      this.data.bottomData.collectors = detail.collectors;
+      this.data.navbarData.title = detail.name;
+      this.setData({
+        detail,
+        city
+      })
   },
 
   /**

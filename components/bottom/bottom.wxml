@@ -3,8 +3,8 @@
   <view class='content' wx:if="{{bottomData.showCollect}}">
     <view class='dw'>
       <view class='item collect'>
-        <view class='img'>
-          <block wx:if="{{bottomData.isCollect}}">
+        <view class='img' bindtap='collected'>
+          <block wx:if="{{!isCollect}}">
           <image src='/images/stars.png'></image>
           </block>
           <block wx:else>
@@ -12,7 +12,7 @@
           </block>
         </view>
         <view class='text'>
-          <text>{{bottomData.collectors}}</text>
+          <text>{{collectors}}</text>
         </view>
       </view>
     </view>

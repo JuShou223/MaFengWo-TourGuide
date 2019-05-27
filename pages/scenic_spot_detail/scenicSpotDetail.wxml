@@ -3,7 +3,7 @@
 <view class='scenicSpotDetail' style='margin-top:{{height}}px'>
   <view class='head'>
     <view class='location_type'>
-      <text>三亚</text>
+      <text>{{city}}</text>
       <view class='mid_spot'></view>
       <text>{{detail.list_name}}</text>
     </view>
