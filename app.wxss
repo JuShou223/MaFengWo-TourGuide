@@ -4,3 +4,16 @@ pages {
   z-index: 9999998;
   background: #fff;
 }
+.end{
+  text-align: center;
+  width: 100%;
+  color: #b2babc;
+  font-size: 24rpx;
+  margin-bottom: 30rpx;
+}
+.logo{
+  margin-top: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
+  margin: 0 auto;
+}

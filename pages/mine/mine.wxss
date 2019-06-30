@@ -12,6 +12,8 @@ page,.mine{
   height: 120rpx;
   float: left;
   margin-left: 40rpx;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .user_name{
   float: left;

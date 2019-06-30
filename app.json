@@ -1,12 +1,17 @@
 {
   "pages": [
-    
-    "pages/mine/mine",
+    "pages/login/login",
     "pages/main/index",
-    "pages/destination/destination",
+    "pages/mine/mine",
     "pages/search/search",
-    "pages/scenic_spot_detail/scenicSpotDetail"
+    "pages/scenic_spot_detail/scenicSpotDetail",
+    "pages/destination/destination"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序将获取你的位置信息"
+    }
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"

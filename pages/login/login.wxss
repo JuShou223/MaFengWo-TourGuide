@@ -1,0 +1,30 @@
+/* miniprogram/pages/login/login.wxss */
+.zr_login{
+  display: none;
+  padding-top: 100rpx;
+}
+.show{
+  display: block;
+}
+.zr_login_img{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 auto;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+.zr_login_des{
+  padding-top: 50rpx;
+  width: 500rpx;
+  margin: 0 auto;
+  letter-spacing: 4rpx;
+  margin-bottom: 50rpx;
+}
+.zr_login_btn{
+  width: 240rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}

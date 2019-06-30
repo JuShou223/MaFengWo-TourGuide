@@ -1,91 +1,399 @@
 <!-- index.wxml -->
 <!-- 顶部导航栏组件 -->
-<nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<!-- 小程序首页 -->
-<view class="main">
-  <scroll-view class="main_scro" scroll-y scroll-with-animation="true" bindscroll="scroll">
-    <view class="header" style='margin-top: {{height}}px'>
-      <view class='header_bdr'>
-        <view class='header_bdra'></view>
-      </view>
-      <view class='header_hd'>
-        <view class='header_title'>
-          <text>马蜂窝</text>
-          <view class='dot'></view>
-          <text>旅行地</text>
-        </view>
-        <view class="header_city">
-          <navigator url="/pages/destination/destination" hover-class="none">
-            <text>{{curDes.name}}</text>
-          </navigator>
-          <view class="downtips"></view>
-        </view>
-      </view>
-      <view class='header_show'>
-        <view class='header_time'>过去24小时</view>
-        <view class='header_showpeople'>
-          <text style='font-size:24rpx;margin-right:4px;'>5276</text>
-          <text>人在这里旅行</text>
-        </view>
-        <view class="header_avatars">
-          <view class='header_avatar a1'>
-            <image src="/images/avatar.png" />
-          </view>
-          <view class='header_avatar a2'>
-            <image src="/images/avatar.png" />
-          </view>
-          <view class='header_avatar a3'>
-            <image src="/images/avatar.png" />
-          </view>
-          <view class='header_avatar a4'>
-            <image src="/images/avatar.png" />
-          </view>
-          <view class='header_avatar a5'>
-            <image src="/images/avatar.png" />
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='menu_list'>
-      <view class='list {{mcurIndex===index?"on":""}}' wx:for="{{menu}}" data-mindex="{{index}}" bindtap='selected_menu' wx:key="{{index}}">
-        {{item.name}}
-      </view>
-    </view>
-    <view class='must_tiyan' wx:if="{{mcurIndex===0}}">
-      <view class='highlight_list'>
-        <view class='highlight {{hlcurIndex===index?"active":""}}' wx:for='{{highlight}}' bindtap='selected_hl' data-hlindex="{{index}}" data-curid="{{item.id}}" wx:key="{{index}}">
-          {{item.name}}
-        </view>
-      </view>
-      <view class='views'>
-        <view class='view' wx:for="{{cur_view}}" wx:key='{{index}}'>
-          <view class='view_item' wx:for="{{item}}" wx:key='{{index}}' bindtap='goScenicSpotDetail' data-name="{{item.name}}">
-            <view class='img'>
-              <image src="{{item.imgURL}}"></image>
+<block wx:if="{{show}}">
+  <nav-bar navbar-data='{{navbarData}}'></nav-bar>
+  <!-- 小程序首页 -->
+  <view class="main">
+    <scroll-view class="main_scro" scroll-y scroll-with-animation="true" bindscroll="scroll" bindscrolltolower="bindDownLoad">
+      <block wx:if="{{!ishot}}">
+        <view class='normalCity'>
+          <view class="header" style='padding-top:{{height}}px'>
+            <view class='header_bdr'>
+              <view class='header_bdra'></view>
             </view>
-            <view class='item_name'>{{item.name}}</view>
-            <view class='item_tourists'>{{item.tourists}}人体验过</view>
-            <view class="{{item.label.length===0?'':'label'}}" wx:for="{{item.label}}" wx:key="{{index}}">
-              {{item}}
+            <view class='header_hd'>
+              <view class='header_title'>
+                <text>马蜂窝</text>
+                <view class='dot'></view>
+                <text>旅行地</text>
+              </view>
+              <navigator url="/pages/destination/destination" hover-class="none">
+                <view class="header_city">
+                  <text>{{placeData.chName}}</text>
+                </view>
+                  <view class="downtips"></view>
+              </navigator>
+            </view>
+            <view class='header_show'>
+              <view class='header_time'>过去24小时</view>
+              <view class='header_showpeople'>
+                <text style='font-size:24rpx;margin-right:4px;'>{{placeData.ffs.numbers}}</text>
+                <text>人在这里旅行</text>
+              </view>
+              <view class="header_avatars">
+                <block wx:for="{{placeData.ffs.ffsInfo}}" wx:if="{{index<5}}" wx:key="{{index}}">
+                  <view class='header_avatar a{{index+1}}'>
+                    <image src="{{item.avatar}}" />
+                  </view>
+                </block>
+              </view>
             </view>
           </view>
+          <view class='menu_list'>
+            <view class='list {{mcurIndex===index?"on":""}}' wx:for="{{placeData.allGuide}}" data-mindex="{{index}}" bindtap='selected_menu' wx:key="{{index}}">
+              {{item.name}}
+            </view>
+          </view>
+          <block wx:if="{{showDefault}}">
+            <view class='nothing'>
+              <image mode='widthFix' src='/images/nothing.png'></image>
+            </view>
+          </block>
+          <block wx:else>
+            <view class='must_tiyan' wx:if="{{mcurIndex===0}}">
+              <view class='highlight_list'>
+                <view class='highlight {{hlcurIndex===index?"active":""}}' wx:for='{{placeData.allGuide[mcurIndex].content}}' bindtap='selected_hl' data-hlindex="{{index}}" wx:key="{{index}}">
+                  {{item.name}}
+                </view>
+              </view>
+              <view class='views'>
+                <view class='view' wx:for="{{cur_view}}" wx:key='{{index}}' data-rowindex="{{index}}">
+                  <view class='view_item' wx:for="{{item}}" wx:key='{{index}}' bindtap='goScenicSpotDetail' data-name="{{item.name}}">
+                    <view class='img'>
+                      <image src="{{item.imgURL}}"></image>
+                    </view>
+                    <view class='item_name'>{{item.name}}</view>
+                    <view class='item_tourists'>{{item.tourists}}人体验过</view>
+                    <view class="{{item.label.length===0?'':'label'}}" wx:for="{{item.label}}" wx:key="{{index}}">
+                      {{item}}
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='travel_guide' wx:if="{{mcurIndex===1}}">
+              <view class='travel_guide_content' wx:for="{{cur_view}}" wx:key="{{index}}">
+                <view class='tg_img'>
+                  <image src='{{item.imgurl}}'></image>
+                </view>
+                <view class='tg_info'>
+                  <view class='tg_info_title'>{{item.title}}</view>
+                  <view class='tg_data'>
+                    <view class='tg_info_read'>{{item.read}}浏览</view>
+                    <view class='dot' style='background-color: #000;border:2rpx solid #000; margin:0 5rpx'></view>
+                    <view class='tg_info_collects'>{{item.collects}}收藏</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='travel_guide' wx:if="{{mcurIndex===2}}">
+              <view class='travel_guide_content' wx:for="{{cur_view}}" wx:key="{{index}}">
+                <view class='tg_img'>
+                  <image src='{{item.imgurl}}'></image>
+                </view>
+                <view class='tg_info'>
+                  <view class='tg_info_title'>{{item.title}}</view>
+                  <view class='tg_data'>
+                    <view class='tg_info_read'>{{item.read}}浏览</view>
+                    <view class='dot' style='background-color: #000;border:2rpx solid #000; margin:0 5rpx'></view>
+                    <view class='tg_info_collects'>{{item.collects}}收藏</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='travel_guide' wx:if="{{mcurIndex===3}}">
+              <view class='travel_guide_content' wx:for="{{placeData.allGuide[mcurIndex].content}}" wx:key="{{index}}">
+                <view class='tg_img'>
+                  <image src='{{item.imgurl}}'></image>
+                </view>
+                <view class='tg_info'>
+                  <view class='tg_info_title'>{{item.title}}</view>
+                  <view class='tg_data'>
+                    <view class='tg_info_read'>{{item.read}}浏览</view>
+                    <view class='dot' style='background-color: #000;border:2rpx solid #000; margin:0 5rpx'></view>
+                    <view class='tg_info_collects'>{{item.collects}}收藏</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <block wx:if="{{showend}}">
+              <view class='end'>
+                <text>-END-</text>
+                <view class='logo'>
+                  <image src='/images/logo.png'></image>
+                </view>
+              </view>
+            </block>
+          </block>
+
         </view>
-      </view>
-    </view>
-    <view class='travel_guide' wx:if="{{mcurIndex===1}}">
-      <view class='travel_guide_content' wx:for="{{curDes.travel_guide}}" wx:key="{{index}}">
-        <view class='tg_img'>
-          <image src='{{item.imgurl}}'></image>
-        </view>
-        <view class='tg_info'>
-          <view class='tg_info_title'>{{item.title}}</view>
-          <view class='tg_data'>
-            <view class='tg_info_read'>{{item.read}}浏览</view>
-            <view class='dot' style='background-color: #000;border:2rpx solid #000; margin:0 5rpx'></view>
-            <view class='tg_info_collects'>{{item.collects}}收藏</view>
+      </block>
+      <block wx:else>
+        <view class='hotCity'>
+          <view class='top'>
+            <view class='mask'></view>
+            <view class='bgimg'>
+              <image src='{{placeData.post}}' style='width:1200rpx'></image>
+            </view>
+            <view class='content cn'>
+              <navigator url="/pages/destination/destination" hover-class="none">
+                <view class='cityName'>
+                  <text>{{placeData.chName}}</text>
+                </view>
+                <view class="downtips2"></view>
+              </navigator>
+            </view>
+            <view class='content wet'>
+              <view class='weather'>
+                <view class='wetIcon'>
+                  <image src='{{weatherPic}}'></image>
+                </view>
+                <view class='tempture'>
+                  <text>{{curtem}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='video a' animation="{{animation1}}" data-index='0' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[0].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='video b' animation="{{animation2}}" data-index='1' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[1].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='video c' animation="{{animation3}}" data-index='2' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[2].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='video d' animation="{{animation4}}" data-index='3' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[3].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='video e' animation="{{animation5}}" data-index='4' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[4].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='video f' animation="{{animation6}}" data-index='5' bindtap="_play">
+              <view class='context'>
+                <text>{{placeData.vlog[5].title}}</text>
+              </view>
+              <view class='vdoIcon'>
+                <image src='/images/play.png'></image>
+              </view>
+            </view>
+            <view class='share'>
+              <scroll-view scroll-x="true" class='photos'>
+                <view class='photo {{index==0 ? "first" : "" }}' wx:for="{{placeData.ffs.ffsInfo}}">
+                  <view class='mask'></view>
+                  <image src='{{item.article[0].picture}}'></image>
+                  <view class='info p'>
+                    <view class='avatar fl'>
+                      <image src='{{item.avatar}}'></image>
+                    </view>
+                    <view class='date'>
+                      <text>刚刚</text>
+                    </view>
+                  </view>
+                </view>
+              </scroll-view>
+              <view class='head'>
+                <view class='avatars flex'>
+                  <view class='avatar flex' wx:for="{{placeData.ffs.ffsInfo}}">
+                    <image src='{{item.avatar}}'></image>
+                  </view>
+                </view>
+                <view class='numbers'>
+                  <text>{{placeData.ffs.numbers}}人</text>
+                </view>
+                <view class='text'>
+                  <text>正在当地</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='bottom'>
+            <view class='btop'>
+              <view class='title fl'>
+                <text>攻略香港</text>
+              </view>
+              <swiper autoplay="true" circular="true" vertical="true" interval="2000" duration="1000" class='beHere'>
+                <swiper-item wx:for="{{placeData.ffs.ffsInfo}}">
+                  <view class='nickname'>
+                    <text>{{item.nickName}} </text>
+                    <text style='color:grey'>最近来过</text>
+                  </view>
+                  <view class='avatar fr'>
+                    <image src='{{item.avatar}}'></image>
+                  </view>
+                </swiper-item>
+              </swiper>
+            </view>
+            <view class='bMiddle1'>
+              <view class='top-left fl bd'>
+                <view class='mask'></view>
+                <image src='{{placeData.mainHighLight[0].post}}'></image>
+                <view class='detail'>
+                  <view class='dname'>
+                    <text>{{placeData.mainHighLight[0].title}}</text>
+                  </view>
+                  <view class='dtitle'>
+                    <text>{{placeData.mainHighLight[0].subTitle}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='top-right fl bd'>
+                <view class='mask'></view>
+                <image src='{{placeData.mainHighLight[1].post}}'></image>
+                <view class='detail'>
+                  <view class='dname'>
+                    <text>{{placeData.mainHighLight[1].title}}</text>
+                  </view>
+                  <view class='dtitle'>
+                    <text>{{placeData.mainHighLight[1].subTtitle}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bot-left fl bd'>
+                <view class='mask'></view>
+                <image src='{{placeData.mainHighLight[2].post}}'></image>
+                <view class='detail'>
+                  <view class='dname'>
+                    <text>{{placeData.mainHighLight[2].title}}</text>
+                  </view>
+                  <view class='dtitle'>
+                    <text>{{placeData.mainHighLight[2].subTitle}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bot-mid fl bd'>
+                <view class='mask'></view>
+                <image src='{{placeData.mainHighLight[3].post}}'></image>
+                <view class='detail'>
+                  <view class='dname'>
+                    <text>{{placeData.mainHighLight[3].title}}</text>
+                  </view>
+                  <view class='dtitle'>
+                    <text>{{placeData.mainHighLight[3].subTitle}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='bot-right fl bd'>
+                <view class='mask'></view>
+                <image src='{{placeData.mainHighLight[4].post}}'></image>
+                <view class='detail'>
+                  <view class='dname'>
+                    <text>{{placeData.mainHighLight[4].title}}</text>
+                  </view>
+                  <view class='dtitle'>
+                    <text>{{placeData.mainHighLight[4].subTitle}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='tips'>
+              <view class='tip' wx:for="{{placeData.hotGuide}}" wx:key="{{index}}">
+                <view class='travel_guide_label' wx:if="{{index==0}}" style='background:green'>第一次必看</view>
+                <view class='tri' wx:if="{{index==0}}" style='border-top: 16rpx solid green'></view>
+                <view class='travel_guide_label' wx:if="{{index==1}}">美食推荐</view>
+                <view class='tri' wx:if="{{index==1}}"></view>
+                <view class='tipname'>
+                  <text>{{item.title}}</text>
+                </view>
+                <view class='tipnum'>
+                  <text>{{item.read>10000 ? (item.read-item.read%10000)/10000+"w" : item.read }}浏览</text>
+                </view>
+              </view>
+            </view>
+            <view class='line'>
+            </view>
+            <view class='bbottom'>
+              <view class='title' style='margin: 0 0 20rpx 30rpx;'>
+                正在旅行
+              </view>
+              <view class='left'>
+                <view class='article' wx:for="{{placeData.allGuide[1].content}}">
+                  <view class='pic'>
+                    <image src='{{item.imgurl}}' mode='widthFix'></image>
+                  </view>
+                  <view class='desc'>
+                    <view class='desctext'>
+                      <text>{{item.title}}</text>
+                    </view>
+                  </view>
+                  <view class='reads'>
+                    <text>{{item.read}}人浏览</text>
+                  </view>
+                  <view class='author'>
+                    <view class='ava'>
+                      <image src='{{item.author.avatar}}'></image>
+                    </view>
+                    <view class='nname'>
+                      <text>{{item.author.nickName}}</text>
+                    </view>
+                    <view class='pdate'>
+                      <text>{{item.date}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class='right'>
+                <view class='article' wx:for="{{placeData.allGuide[2].content}}">
+                  <view class='pic'>
+                    <image src='{{item.imgurl}}' mode='widthFix'></image>
+                  </view>
+                  <view class='desc'>
+                    <view class='desctext'>
+                      <text>{{item.title}}</text>
+                    </view>
+                  </view>
+                  <view class='reads'>
+                    <text>{{item.read}}人浏览</text>
+                  </view>
+                  <view class='author'>
+                    <view class='ava'>
+                      <image src='{{item.author.avatar}}'></image>
+                    </view>
+                    <view class='nname'>
+                      <text>{{item.author.nickName}}</text>
+                    </view>
+                    <view class='pdate'>
+                      <text>{{item.date}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
           </view>
         </view>
-      </view>
-    </view>
-  </scroll-view>
-</view>
+        <view class='videosrc  {{on ? "on" : ""}}'>
+          <view class='mask'></view>
+          <video class='myVideo' id="myVideo" src="{{src}}" controls></video>
+          <view class='close' bindtap='_close'>
+            <image src='/images/close.png'></image>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+</block>

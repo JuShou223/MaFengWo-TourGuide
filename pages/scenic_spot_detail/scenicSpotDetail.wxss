@@ -1,6 +1,10 @@
 /* pages/scenic_spot_detail/scenicSpotDetail.wxss */
-page,.scenicSpotDetail{
+page{
   height: 100%;
+}
+.scenicSpotDetail{
+  height: 1094rpx;
+  position: fixed;
 }
 .head{
   overflow: hidden;
@@ -92,6 +96,7 @@ image{
   border:1px solid #fff;
   border-radius: 50%;
   left: 10rpx;
+  overflow: hidden;
 }
 .info{
   margin-left: 80rpx;
@@ -102,6 +107,7 @@ image{
 .htg_title{
   margin:50rpx 0 30rpx 30rpx; 
   font-size: 34rpx;
+  width: 690rpx;
 }
 .travel_guide{
   border-radius: 10rpx;
@@ -115,6 +121,8 @@ image{
 }
 .travel_guide_title{
   font-size: 24rpx;
+  width: 280rpx;
+  height: 64rpx;
 }
 .travel_guide_liulan{
   font-size: 22rpx;
@@ -139,4 +147,244 @@ image{
   position: absolute;
   top: 10rpx;
   left: 20rpx;
+}
+.navigation{
+  margin-left: 30rpx;
+  width: 690rpx;
+  overflow: hidden;
+  padding-bottom: 30rpx;
+}
+.idn{
+  overflow: hidden;
+  border-bottom: 1px solid #f5f8f8;
+  padding-bottom: 30rpx;
+}
+.n-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+.address{
+  font-size: 24rpx;
+  line-height: 40rpx;
+  width: 360rpx;
+  float: left;
+}
+.map{
+  width: 200rpx;
+  height: 80rpx;
+  float: right;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.gomap{
+  width:160rpx;
+  height: 60rpx;
+  background-color: #ffffff;
+  border: 1px solid #979495;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -80rpx;
+  margin-top: -30rpx;
+  font-size: 32rpx;
+  line-height: 32rpx;
+}
+.ficon{
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+  margin-left: 24rpx;
+  margin-right: 6rpx;
+  margin-top: 14rpx;
+}
+.ndinfos{
+  overflow: hidden;
+}
+.ndinfo{
+  margin-top: 40rpx;
+  overflow: hidden;
+  position: relative;
+}
+.ndicon{
+  margin-right: 24rpx;
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+}
+.desctext{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  width: 580rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+}
+.aricon{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 30rpx;
+}
+.ggicon{
+  width: 60rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  font-weight: bold;
+  color: orange;
+  float: left;
+  margin-right: 16rpx;
+}
+.gonggao{
+  margin-top: 30rpx;
+  background-color: #f5f8f8;
+  border-radius: 8rpx;
+  padding: 20rpx 16rpx;
+  position: relative;
+  overflow: hidden;
+}
+.ggtext{
+  font-size: 24rpx;
+  line-height: 30rpx;
+  width: 548rpx;
+  float: left;
+}
+.all{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  color: #354a98;
+}
+.pinluns,plpics{
+  width: 690rpx;
+  margin-left: 30rpx;
+  overflow: hidden;
+  padding-bottom: 20rpx; 
+}
+.pinlun{
+  font-size: 24rpx;
+  margin: 0 16rpx 16rpx 0;
+  float: left;
+  background-color: #f5f8f8;
+  padding: 16rpx;
+  border-radius: 8rpx;
+}
+.pavatar{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  overflow: hidden;
+  float: left;
+}
+.plnickname{
+  font-size: 30rpx;
+  line-height: 50rpx;
+  float: left;
+  margin-left: 20rpx;
+}
+.plcontent{
+  position: relative;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  height: 128rpx;
+  overflow: hidden;
+  clear:both;
+  letter-spacing: 4rpx;
+  margin-top: 20rpx;
+}
+.all1{
+  position: absolute;
+  bottom: 0;
+  right: 6rpx;
+  background-color: #fff;
+  color: #354a98;
+  font-size: 30rpx;
+}
+.showAllpinlun{
+  text-align: center;
+  font-size: 24rpx;
+  color: #354a98;
+}
+.plpics{
+  margin-top: 20rpx;
+}
+.plpic{
+  display: inline-block;
+  width: 164rpx; 
+  height: 164rpx;
+  margin-right: 6rpx;
+}
+.article{
+  width: 100%;
+  float: left;
+  margin-bottom: 10rpx;
+}
+.pic{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8rpx 8rpx 0 0;
+  background-color: #ffffff;
+}
+.desc{
+  background-color: #ffffff;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  padding: 15rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  height: 82rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.left,.right{
+  float: left;
+  width: 340rpx;
+}
+.left{
+  margin: 0 10rpx 0 30rpx;
+}
+.reads{
+  font-size: 20rpx;
+  background-color: #fff;
+  padding: 15rpx;
+  color: #717474;
+}
+.author{
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.ava{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 15rpx;
+  float: left;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.nname{
+  margin-left: 8rpx;
+  font-size: 20rpx;
+  line-height: 25rpx;
+  width: 200rpx;
+  float: left;
+}
+.pdate{
+  margin-left: 8rpx;
+  font-size: 18rpx;
+  line-height: 25rpx;
+  width: 200rpx;
+  float: left;
+  color: #717474;
+}
+.zailuxin{
+  overflow: hidden;
 }

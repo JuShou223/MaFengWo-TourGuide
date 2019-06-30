@@ -3,7 +3,7 @@
 <view class='mine' style='margin-top:{{height}}px'>
   <view class='userInfo'>
     <view class='user_avatar'>
-      <image src='/images/avatar.png'></image>
+      <image src='{{userInfo.avatarUrl}}'></image>
     </view>
     <view class='user_name'>{{userInfo.nickName}}</view>
     <view class='user_level'>
@@ -17,11 +17,11 @@
         {{item.name}}
       </view>
     </view>
-    <view class='collection_content' data-name="{{item.name}}" wx:for="{{collection_type[0].content}}" bindtap="gotoScenicSpotDetail">
+    <view class='collection_content' data-name="{{item.name}}" wx:for="{{content}}" bindtap="goScenicSpotDetail">
       <view class='img'>
         <image src="{{item.imgURL}}"></image>
       </view>
-      <block wx:if="{{item.type=='view'}}">
+      <block wx:if="{{item.type=='必体验'}}">
         <view class='view_name'>
           <text>{{item.name}}</text>
         </view>
@@ -33,7 +33,7 @@
             <image src="/images/local.png"></image>
           </view>
           <view class='cityName'>
-            {{item.city_name}}
+            {{item.address}}
           </view>
         </view>
       </block>

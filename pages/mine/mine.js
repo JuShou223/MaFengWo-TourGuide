@@ -15,27 +15,21 @@ Page({
     collection_type: [
       {
         name: '全部',
-        content: []
       },
       {
         name: '游记',
-        content: []
       },
       {
         name: '攻略',
-        content: []
       },
       {
         name: '问答',
-        content: []
       },
       {
         name: '线路',
-        content: []
       },
       {
         name: '必体验',
-        content: []
       }
     ],
     curIndex: 0,
@@ -54,6 +48,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -81,7 +76,12 @@ Page({
       })
     }
   },
-
+  goScenicSpotDetail(e) {
+    let name = e.currentTarget.dataset.name
+    wx.navigateTo({
+      url: `/pages/scenic_spot_detail/scenicSpotDetail?name=${name}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -93,29 +93,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let collects = wx.getStorageSync('collects');
-    const details = wx.getStorageSync('details');
-    if (collects) {
-      this.data.collection_type[0].content = collects;
-    }
-    if (details) {
-      for (let detail of details) {
-        if (!detail.isCollect) {
-          for (let i = 0; i < this.data.collection_type[0].content.length; i++) {
-            if (this.data.collection_type[0].content[i].name == detail.name) {
-              this.data.collection_type[0].content.splice(i, 1);
-            }
-          }
-        }
-      }
-    }
-    const collection_type = this.data.collection_type;
+    let collectData = wx.getStorageSync('collectData') || [];
+    let content = collectData;
     this.setData({
-      collection_type,
+      content
     })
-    wx.removeStorageSync('collects')
   },
-
+  updateData(){
+    
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -149,46 +135,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  gotoScenicSpotDetail(e) {
-    let index = 0;
-    for (let i = 0; i < this.data.collection_type[0].content.length; i++) {
-      if (this.data.collection_type[0].content[i].name === e.currentTarget.dataset.name) {
-        let index = i;
-        const {
-          name,
-          collectors,
-          isCollect,
-          label,
-          list_name,
-          tourists
-        } = this.data.collection_type[0].content[index];
-        let city = this.data.collection_type[0].content[index].city_name;
-        let details = wx.getStorageSync('details');
-        if (!details) {
-          details = [];
-        }
-        const detail = {
-          name,
-          collectors,
-          isCollect
-        };
-        for (let i in details) {
-          if (details[i].name == detail.name) {
-            details[i] = detail;
-            let index = i;
-            break;
-          }
-        }
-        if (index == 0) {
-          details.push(detail);
-        }
-        wx.setStorageSync("details", details)
-        wx.navigateTo({
-          url: `/pages/scenic_spot_detail/scenicSpotDetail?name=${name}&collectors=${collectors}&isCollect=${isCollect}&label=${label}&list_name=${list_name}&tourists=${tourists}&city=${city}`,
-        })
-      }
-    }
   },
   getUserInfo: function (e) {
     console.log(e)

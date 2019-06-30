@@ -44,8 +44,14 @@ image{
   top: 0;
   left: 50%;
 }
+.item.like{
+  margin-left: -58rpx;
+}
+.item.like .text{
+  margin-top:3rpx; 
+}
 .item.collect{
-  margin-left: -77rpx;
+  margin-left: -58rpx;
 }
 .item.share{
   margin-left: -82rpx;

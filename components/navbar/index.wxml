@@ -1,9 +1,9 @@
-<view class='nav-wrap' style='height: {{height*2 + 20}}px; background:{{navbarData.backgroundColor}};'>
-  <view style="width:100%;height:100%;opacity:{{navbarData.opacity}}">
+<view class='nav-wrap' style='height: {{height*2 + 20}}px; background-color:{{navbarData.backgroundColor}};opacity:{{navbarData.opacity}}'>
+  <view style="width:100%;height:100%;">
     <!-- // 导航栏 中间的标题 -->
     <navigator url="/pages/destination/destination" hover-class="none">
       <view class="nav-city" style='margin-top:{{height*2 + 20-36}}px;' wx:if='{{navbarData.showMain}}'>
-        <text>{{navbarData.city}}</text>
+        <text>{{navbarData.cityName}}</text>
         <view class="downtips"></view>
       </view>
     </navigator>

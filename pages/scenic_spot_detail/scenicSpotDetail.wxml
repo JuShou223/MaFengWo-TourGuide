@@ -1,17 +1,17 @@
 <!--pages/scenic_spot_detail/scenicSpotDetail.wxml-->
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<view class='scenicSpotDetail' style='margin-top:{{height}}px'>
+<scroll-view scroll-y="true" bindscrolltolower="bindDownLoad" class='scenicSpotDetail' style='top:{{height}}px'>
   <view class='head'>
     <view class='location_type'>
-      <text>{{city}}</text>
+      <text>{{placeData.address}}</text>
       <view class='mid_spot'></view>
-      <text>{{detail.list_name}}</text>
+      <text>{{placeData.list_name}}</text>
     </view>
     <view class='scenicSpotName'>
-      <text>{{detail.name}}</text>
+      <text>{{placeData.name}}</text>
     </view>
     <view class='scenicSpotLabels'>
-      <view class='{{detail.label.length===0?"":"scenicSpotLabel"}}' wx:for="{{detail.label}}">
+      <view class='{{detail.label.length===0?"":"scenicSpotLabel"}}' wx:for="{{placeData.label}}">
         <text>{{item}}</text>
       </view>
     </view>
@@ -21,93 +21,213 @@
       <text style='font-size:40rpx;'>1738</text>
       <text>人在当地</text>
       <text class='gxdate'>更新于1天前</text>
-   </view>
-    <scroll-view scroll-x="true"class='showImgs' style='height:230rpx;width:100%;'>
-        <view class='showImg first'>
-          <view class='img'>
-            <image src='/images/heilongjiang.jpeg'></image>
-          </view>
-          <view class='info'>
-            <text>山鸡从良</text>
-          </view>
-          <view class='avatar'>
-            <image src='/images/avatar.png'></image>
-          </view>
+    </view>
+    <scroll-view scroll-x="true" class='showImgs' style='height:230rpx;width:100%;'>
+      <view class='showImg {{index===0 ? "first" :""}}' wx:for="{{ffs.ffsInfo}}" wx:key="{{index}}">
+        <view class='img'>
+          <image src='{{item.article[0].picture}}'></image>
         </view>
-        <view class='showImg'>
-          <view class='img'>
-            <image src='/images/heilongjiang.jpeg'></image>
-          </view>
-          <view class='info'>
-            <text>山鸡从良</text>
-          </view>
-          <view class='avatar'>
-            <image src='/images/avatar.png'></image>
-          </view>
+        <view class='info'>
+          <text>{{item.nickName}}</text>
         </view>
-        <view class='showImg'>
-          <view class='img'>
-            <image src='/images/heilongjiang.jpeg'></image>
-          </view>
-          <view class='info'>
-            <text>山鸡从良</text>
-          </view>
-          <view class='avatar'>
-            <image src='/images/avatar.png'></image>
-          </view>
+        <view class='avatar'>
+          <image src='{{item.avatar}}'></image>
         </view>
-        <view class='showImg'>
-          <view class='img'>
-            <image src='/images/heilongjiang.jpeg'></image>
-          </view>
-          <view class='info'>
-            <text>山鸡从良</text>
-          </view>
-          <view class='avatar'>
-            <image src='/images/avatar.png'></image>
-          </view>
-        </view>
-        <view class='showImg'>
-          <view class='img'>
-            <image src='/images/heilongjiang.jpeg'></image>
-          </view>
-          <view class='info'>
-            <text>山鸡从良</text>
-          </view>
-          <view class='avatar'>
-            <image src='/images/avatar.png'></image>
-          </view>
-        </view>
+      </view>
     </scroll-view>
   </view>
   <view class='hot_travel_guide'>
     <view class='htg_title'>
       <text>热门攻略</text>
+      <text style='float:right;font-size:20rpx;line-height:44rpx;color: #979495;'>24小时更新与马蜂窝大数据</text>
     </view>
-    <view class='travel_guide first'>
-    <view class='travel_guide_label'>攻略TOP1</view>
-    <view class='tri'></view>
-      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
-      <view class='travel_guide_liulan'>256浏览</view>
-    </view>
-    <view class='travel_guide'>
-      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
-      <view class='travel_guide_liulan'>256浏览</view>
-    </view>
-    <view class='travel_guide'>
-      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
-      <view class='travel_guide_liulan'>256浏览</view>
-    </view>
-    <view class='travel_guide'>
-    <view class='travel_guide_label' style='background-color:#01c689'>大家都在问</view>
-    <view class='tri'style='border-top: 16rpx solid #01c689;'></view>
-      <view class='travel_guide_title'><text>跟着爱豆游三亚 | 电影和综艺取景地</text></view>
-      <view class='travel_guide_liulan'>256浏览</view>
+    <view class='travel_guide {{index ===0 ? "first" : ""}}' wx:for="{{hotGuide}}" wx:key="{{index}}" wx:if="{{index<4}}">
+      <block wx:if="{{index == 0}}">
+        <view class='travel_guide_label'>攻略TOP1</view>
+        <view class='tri'></view>
+      </block>
+      <block wx:if="{{index == 3}}">
+        <view class='travel_guide_label' style='background-color:#01c689'>大家都在问</view>
+        <view class='tri' style='border-top: 16rpx solid #01c689;'></view>
+      </block>
+      <view class='travel_guide_title'>
+        <text>{{item.title}}</text>
+      </view>
+      <view class='travel_guide_liulan'>{{item.read}}浏览</view>
     </view>
   </view>
-  <!-- <view class='havingFunDetail'>
-    <view class='hfd_title'>景点玩乐详情</view>
-    <view class='navigation'></view>
-  </view> -->
-</view>
+  <view class='havingFunDetail'>
+    <view class='htg_title'>景点玩乐详情</view>
+    <view class='navigation'>
+      <view class='idn'>
+        <view class='n-icon'>
+          <image src='/images/mdd.png'></image>
+        </view>
+        <view class='address'>
+          <text>江西省南昌市东湖区仿古街58号</text>
+        </view>
+        <view class='map' bindtap='openMap'>
+          <image src='/images/map.jpg'></image>
+          <view class='gomap'>
+            <view class='ficon'>
+              <image src='/images/fj.png'></image>
+            </view>
+            <text style='line-height:60rpx;'>导航</text>
+          </view>
+        </view>
+      </view>
+      <view class='ndinfos'>
+        <view class='ndinfo' bindtap='toulan'>
+          <view class='ndicon'>
+            <image src='/images/sz.png'></image>
+          </view>
+          <view class='desctext'>
+            <text>开放时间：8:00-18:30 | 停止售票时间：17：45</text>
+          </view>
+          <view class='aricon'>
+            <image src='/images/arr.png'></image>
+          </view>
+        </view>
+        <view class='ndinfo' bindtap='toulan'>
+          <view class='ndicon'>
+            <image src='/images/dt.png'></image>
+          </view>
+          <view class='desctext'>
+            <text>交通攻略：乘2路内环 、7路 、26路内环 、302路内环到滕王阁站下车即可</text>
+          </view>
+          <view class='aricon'>
+            <image src='/images/arr.png'></image>
+          </view>
+        </view>
+        <view class='ndinfo' bindtap='toulan'>
+          <view class='ndicon'>
+            <image src='/images/mp.png'></image>
+          </view>
+          <view class='desctext'>
+            <text>门票攻略：普通票 50￥ | 免票 65岁以上老人 、 1.2米以下儿童 | 半价票 1.2米至1.5米儿童 、 学生 、 南昌市民</text>
+          </view>
+          <view class='aricon'>
+            <image src='/images/arr.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='gonggao'>
+        <view class='ggicon'>
+          <text>信息公告</text>
+        </view>
+        <view class='ggtext'>
+          <text>游览体验：景区有电梯，只供行动不便与70岁以上老人使用。</text>
+        </view>
+        <view class='all' bindtap='toulan'>
+          <text>全部</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='dianpin'>
+    <view class='htg_title'>蜂蜂点评(1653条)点评</view>
+    <view class='pinluns'>
+      <view class='pinlun' bindtap='toulan'>
+        <text>好评 1225</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>差评 67</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>有图 514</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>金牌点评 9</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>标志性建筑 55</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>值得去 39</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>交通方便 17</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>人很多 14</text>
+      </view>
+      <view class='pinlun' bindtap='toulan'>
+        <text>尽收眼底 11</text>
+      </view>
+    </view>
+    <view bindtap='toulan' class='pinluns' wx:for="{{ffs.ffsInfo}}" wx:key="{{index}}" wx:if="{{index<2}}">
+      <view class='pavatar'>
+        <image src='{{item.avatar}}'></image>
+      </view>
+      <view class='plnickname'>
+        <text>{{item.nickName}}</text>
+      </view>
+      <view class='plcontent'>
+        <text>{{item.article[0].content}}</text>
+        <view class='all1'>
+          <text>全部</text>
+        </view>
+      </view>
+      <view class='plpics'>
+        <view class='plpic' wx:for="{{item.article[0].pictures}}" wx:if="{{index<4}}">
+          <image src='{{item}}'></image>
+        </view>
+      </view>
+    </view>
+    <view class='showAllpinlun' bindtap='toulan'>
+      <text>展开1653条点评></text>
+    </view>
+  </view>
+  <view class='zailuxin'>
+    <view class='htg_title'>正在旅行</view>
+    <view class='left'>
+      <view class='article' wx:for="{{content}}">
+        <view class='pic'>
+          <image src='{{item.imgurl}}' mode='widthFix'></image>
+        </view>
+        <view class='desc'>
+            <text>{{item.title}}</text>
+        </view>
+        <view class='reads'>
+          <text>{{item.read}}人浏览</text>
+        </view>
+        <view class='author'>
+          <view class='ava'>
+            <image src='{{item.author.avatar}}'></image>
+          </view>
+          <view class='nname'>
+            <text>{{item.author.nickName}}</text>
+          </view>
+          <view class='pdate'>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='right'>
+      <view class='article' wx:for="{{content}}">
+        <view class='pic'>
+          <image src='{{item.imgurl}}' mode='widthFix'></image>
+        </view>
+        <view class='desc'>
+            <text>{{item.title}}</text>
+        </view>
+        <view class='reads'>
+          <text>{{item.read}}人浏览</text>
+        </view>
+        <view class='author'>
+          <view class='ava'>
+            <image src='{{item.author.avatar}}'></image>
+          </view>
+          <view class='nname'>
+            <text>{{item.author.nickName}}</text>
+          </view>
+          <view class='pdate'>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
 <bottom bottom-data="{{bottomData}}"></bottom>

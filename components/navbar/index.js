@@ -4,7 +4,8 @@ Component({
     navbarData: {   //navbarData   由父页面传递的数据，变量名字自命名
       type: Object,
       value: {},
-      observer: function (newVal, oldVal) {}
+      observer: function (newVal, oldVal) {
+      }
     }
   },
   data: {
@@ -12,7 +13,7 @@ Component({
     //默认值  默认显示左上角
     navbarData: {
       showCapsule: 1
-    }
+    },
   },
   attached: function () {
     // 获取是否是通过分享进入的小程序
@@ -24,15 +25,6 @@ Component({
     this.setData({
       height: app.globalData.height
     })
-    const detail = wx.getStorageSync('detail')
-    if(detail){
-    const name = detail.name;
-    this.data.navbarData.title = name;
-    let navbarData = this.data.navbarData;
-    this.setData({
-      navbarData
-    })
-    }
   },
   methods: {
   // 返回上一页面

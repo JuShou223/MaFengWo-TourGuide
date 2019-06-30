@@ -1,0 +1,12 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class='zr_login {{show?"show":""}}' style='margin-top:{{height}}px'>
+  <view class='zr_login_img'>
+    <image src='/images/logo.png'></image>
+  </view>
+  <view class='zr_login_des'>
+    <text>小程序需要获取你的公开信息（昵称、头像等），才能正常使用</text>
+  </view>
+  <view class='zr_login_btn'>
+    <button style='background:green; color:#fff' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">同意授权</button>
+  </view>
+</view>

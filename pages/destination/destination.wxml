@@ -1,6 +1,6 @@
 <!-- pages/destination/destination.wxml -->
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
-<view class="destination" style='margin-top: {{height}}px'>
+<view class="destination" style='top: {{height}}px'>
   <view class="des_head">
   <navigator url="/pages/search/search" hover-class="none">
     <view class="des_search">

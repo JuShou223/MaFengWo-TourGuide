@@ -66,12 +66,15 @@ view {
 } */
 
 .nav-city {
-  width: 150rpx;
+  max-width: 150rpx;
+  overflow: hidden;
   display: flex;
   align-items: center;
   margin-left: 30rpx;
   font-weight: bold;
   font-size: 22px;
+  color: #000;
+  white-space: nowrap;
 }
 
 .section {

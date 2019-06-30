@@ -1,13 +1,78 @@
 <!--pages/search/search.wxml-->
 <nav-bar navbar-data='{{navbarData}}'></nav-bar>
 <view class='content' style='margin-top:{{height}}px'>
-  <view class='search-bar'>
-    <view class='search-icon'>
-      <icon type='search' size='30rpx'></icon>
+  <view class='head'>
+    <view class='search-bar'>
+      <view class='search-icon'>
+        <icon type='search' size='30rpx'></icon>
+      </view>
+      <view class='input'>
+        <input style='width:500rpx' bindconfirm='confirm' confirm-type='search' focus='true' placeholder="搜索目的地/景点/攻略" bindinput='search'></input>
+      </view>
     </view>
-    <view class='input'>
-      <input style='width:500rpx' confirm-type='search' focus='true' placeholder="搜索目的地/景点/攻略"></input>
+    <view class='cancle' bindtap='_navback'>取消</view>
+  </view>
+  <view style='width:690rpx;margin-left:30rpx;' wx:if="{{show}}">
+    <view class='top'>
+      <view class='title'>
+        <text>历史纪录</text>
+      </view>
+      <view class='clear' bindtap='clear'>
+        <image src='/images/clear.png'></image>
+      </view>
+    </view>
+    <view class='histories'>
+      <view class='history' wx:for="{{searchHistory}}" wx:key="{{index}}" bindtap='gosearch' data-name='{{item}}'>
+        {{item}}
+      </view>
     </view>
   </view>
-  <view class='cancle'>取消</view>
+  <view class='results' wx:if="{{showResult}}">
+    <view class='result' wx:for="{{result}}" data-name="{{item.name}}" wx:key="{{index}}" bindtap='gotomain'>
+      <view class='mudidiicon'>
+        <image src="/images/gogogo.png"></image>
+      </view>
+      <view class='resultinfo'>
+        <view class='resultName'>
+          <text>{{item.left}}</text>
+          <text style='color:orange'>{{item.mid}}</text>
+          <text>{{item.right}}</text>
+        </view>
+        <view class='resultType'>
+          <block wx:if="{{item.location}}">
+            <text decode="{{true}}">{{item.location}}&nbsp;&nbsp;</text>
+          </block>
+          <text>{{item.type}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{showResult}}">
+    <view class='bottom'>
+      搜索更多关于“{{searchparams}}”的结果
+    </view>
+  </block>
+  <block wx:if="{{showconfirm}}">
+    <block wx:if="{{placedata.length>0}}">
+      <view class='place' data-name="{{placedata[0].chName}}" bindtap='gotomain'>
+        <view class='img'>
+          <image src="{{placedata[0].post}}"></image>
+        </view>
+        <view class='chName'>
+          <text>{{placedata[0].chName}}</text>
+        </view>
+        <view class='text'>
+          <text>{{placedata[0].ffs.numbers}}蜂蜂去过</text>
+        </view>
+        <view class='arrow'>
+          <image src='/images/arr.png'></image>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class='nothing'>
+        <image mode='widthFix' src='/images/nothing.png'></image>
+      </view>
+    </block>
+  </block>
 </view>

@@ -45,9 +45,16 @@ App({
     wx.getSystemInfo({
       success: (res) => {
         this.globalData.height = res.statusBarHeight
-        console.log(res)
       }
     })
+  },
+  toulan(){
+    wx.showToast({
+      title: '功能待完善'
+    })
+    setTimeout(()=>{
+      wx.hideToast()
+    },1000)
   },
   globalData: {
     userInfo: null,

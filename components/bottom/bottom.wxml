@@ -1,36 +1,57 @@
-<!--components/bottom/bottom.wxml-->
+<!-- components/bottom/bottom.wxml -->
 <view class='bottombar' style='height: {{(height*2 + 20)*2}}rpx;'>
-  <view class='content' wx:if="{{bottomData.showCollect}}">
-    <view class='dw'>
-      <view class='item collect'>
-        <view class='img' bindtap='collected'>
-          <block wx:if="{{!isCollect}}">
-          <image src='/images/stars.png'></image>
-          </block>
-          <block wx:else>
-          <image src='/images/stars1.png'></image>
-          </block>
-        </view>
-        <view class='text'>
-          <text>{{collectors}}</text>
-        </view>
-      </view>
-    </view>
-  </view>
-
-  <view class='content' wx:if=" {{bottomData.showCamera}} ">
-    <view class='dw'>
-      <view class='item camera'>
-        <view class='img'>
-          <image src='/images/camera.png'></image>
-        </view>
-        <view class='text'>
-          <text>发照片</text>
+  <block wx:if="{{bottomData.showLike}}">
+    <view class='content'>
+      <view class='dw'>
+        <view class='item like'>
+          <view class='img' bindtap='like'>
+            <block wx:if="{{!islike}}">
+              <image src='/images/unlike.png'></image>
+            </block>
+            <block wx:else>
+              <image src='/images/like.png'></image>
+            </block>
+          </view>
+          <view class='text'>
+            <text>123</text>
+          </view>
         </view>
       </view>
     </view>
-  </view>
-
+  </block>
+  <block wx:if="{{bottomData.showCollect}}">
+    <view class='content'>
+      <view class='dw'>
+        <view class='item collect'>
+          <view class='img' bindtap='collected'>
+            <block wx:if="{{!bottomData.placeData.isCollect}}">
+              <image src='/images/stars.png'></image>
+            </block>
+            <block wx:else>
+              <image src='/images/stars1.png'></image>
+            </block>
+          </view>
+          <view class='text'>
+            <text>{{bottomData.placeData.collectors}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{bottomData.showCamera}}">
+    <view class='content'>
+      <view class='dw'>
+        <view class='item camera'>
+          <view class='img'>
+            <image src='/images/camera.png'></image>
+          </view>
+          <view class='text'>
+            <text>发照片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
   <view class='content'>
     <view class='dw' style='margin-top:-29rpx'>
       <view class='item share'>

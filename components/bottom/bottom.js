@@ -17,9 +17,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-    height: '',
-    isCollect:false,
-    collectors:0
+    height: ''
+  },
+  created: function(){
+    
   },
   attached: function () {
     // 获取是否是通过分享进入的小程序
@@ -27,16 +28,8 @@ Component({
       share: app.globalData.share
     })
     // 定义导航栏的高度   方便对齐
-    console.log(app.globalData)
     this.setData({
       height: app.globalData.height
-    })
-    let details = wx.getStorageSync('details')
-    let isCollect = details[0].isCollect;
-    let collectors = details[0].collectors;
-    this.setData({
-      isCollect,
-      collectors
     })
   },
   /**
@@ -44,9 +37,11 @@ Component({
    */
   methods: {
     collected(){
-      let isCollect = this.data.isCollect;
-      let collectors = this.data.collectors;
+      let {isCollect,collectors} = this.data.bottomData.placeData;
       isCollect = !isCollect;
+      this.data.bottomData.placeData.isCollect = isCollect;
+      this.data.bottomData.placeData.collectors = collectors;
+      let collectData = wx.getStorageSync('collectData') || [];
       if(isCollect){
         wx.showToast({
           title: '收藏成功',
@@ -54,6 +49,7 @@ Component({
           duration: 2000
         })
         collectors++;
+        collectData.push(this.data.bottomData.placeData);
       }else{
         wx.showToast({
           title: '已取消',
@@ -61,14 +57,12 @@ Component({
           duration: 2000
         })
         collectors--;
+        collectData = collectData.filter(e => e.name != this.data.bottomData.placeData.name)
       }
-      const details = wx.getStorageSync('details');
-      details[0].isCollect = isCollect;
-      details[0].collectors = collectors;
-      wx.setStorageSync('details', details)
+      wx.setStorageSync('collectData', collectData)
+      let bottomData = this.data.bottomData;
       this.setData({
-        isCollect,
-        collectors
+        bottomData
       })
     }
   }

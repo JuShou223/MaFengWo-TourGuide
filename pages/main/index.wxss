@@ -1,5 +1,5 @@
 /**index.wxss**/
-page,.main,.header_bdr,.list,.main_scro,.must_tiyan,image{
+page,.main,.header_bdr,.main_scro,.list,.must_tiyan,image{
   height: 100%;
 }
 .header,.menu_list,image,.views,.img,.travel_guide,.must_tiyan,.tg_data{
@@ -12,7 +12,7 @@ page,.main,.header_bdr,.list,.main_scro,.must_tiyan,image{
 .header_show,.header_show,.header_time,.header_showpeople,.header_avatars,.header_avatar{
   float: right;
 }
-.header,.header_bdr,.header_title,.header_city,.menu_list,.tg_data{
+.header,.header_bdr,.header_title,.menu_list,.tg_data{
   display: flex;
 }
 .header,.highlight_list,.views,.view,.img,.main_scro,.tg_img,.travel_guide,.travel_guide_content{
@@ -40,7 +40,7 @@ border: 1px solid black;
 }
 
 .header .header_hd {
-  width: 40%;
+  width: 45%;
 }
 
 .header .header_title {
@@ -66,6 +66,11 @@ border: 1px solid black;
   font-size: 64rpx;
   padding-left: 24rpx;
   align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 246rpx;
+  text-overflow: ellipsis;
+  float: left;
 }
 
 .downtips {
@@ -73,7 +78,9 @@ border: 1px solid black;
   border-left: 10rpx solid transparent;
   border-right: 10rpx solid transparent;
   border-top: 10rpx solid #eaeaea;
-  margin-left: 2rpx;
+  margin-top: 40rpx;
+  float: left;
+  margin-left: 8rpx;
 }
 
 .header_show {
@@ -101,7 +108,7 @@ border: 1px solid black;
 .header_avatars {
   position: relative;
   width: 50%;
-  height: 40rpx;
+  height: 50rpx;
   margin-right: 15px;
 }
 
@@ -111,6 +118,7 @@ border: 1px solid black;
   height: 50rpx;
   border-radius: 50%;
   position: absolute;
+  overflow: hidden;
 }
 
 .a1 {
@@ -218,10 +226,423 @@ border: 1px solid black;
   align-items: center;
 }
 .main_scro{
-
+height: 100%;
+overflow: hidden;
 }
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
   color: transparent;
+}
+/* pages/hotCity/hotCity.wxss */
+.bgimg,.hotCity{
+  width: 100%;
+  height: 100%;
+}
+.hotCity{
+  background-color: #f5f8f8;
+  position: relative;
+}
+.top{
+  width: 100%;
+  height: 85%;
+  position: relative;
+}
+.bgimg{
+  margin-left: -60rpx;
+  margin-top: -40rpx;
+}
+.weather{
+  overflow: hidden;
+  width: 130rpx;
+  margin: 0 auto;
+}
+.wetIcon{
+  width: 48rpx;
+  height: 48rpx;
+  float: left;
+}
+.tempture{
+  float: left;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 4rpx;
+  line-height: 48rpx;
+}
+.mask{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  background:rgba(0,0,0,0.4);
+}
+.downtips2 {
+  height: 0px;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-top: 10rpx solid #eaeaea;
+  margin-left: 2rpx;
+  margin-top: 25rpx;
+  float: left;
+}
+.cityName{
+  color: #fff;
+  float: left;
+  text-align: center;
+  font-size: 50rpx;
+  margin-left: 310rpx;
+}
+.content{
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+.content.cn{
+  top: 30%
+}
+.content.wet{
+  top: 38%;
+}
+.video{
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 6rpx 10rpx;
+}
+.context{
+  float: left;
+  font-size: 32rpx;
+  line-height: 40rpx;
+  padding: 10rpx;
+  font-weight: 500;
+}
+.vdoIcon{
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+  margin-left: 6rpx;
+}
+.a{
+  opacity: 0.9;
+}
+.b{
+  transform: translate(170rpx,-110rpx) scale(0.8);
+  opacity: 0.8;
+}
+.c{
+  transform: translate(210rpx,-250rpx) scale(0.7);
+  opacity: 0.7;
+}
+.d{
+  transform: translate(10rpx,-350rpx) scale(0.6);
+  opacity: 0.6;
+}
+.e{
+  transform: translate(-250rpx,-290rpx) scale(0.8);
+  opacity: 0.5;
+}
+.f{
+  transform: translate(-300rpx,-130rpx) scale(0.9);
+  opacity: 0.8;
+}
+.share{
+  position: absolute;
+  top: 68%;
+  width: 100%;
+}
+.head{
+  background-color: #fff;
+  border-radius: 10rpx;
+  position: absolute;
+  left: 30rpx;
+  width: 150rpx;
+  height: 180rpx;
+}
+.avatars{
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  width: 130rpx;
+  height: 44rpx;
+  overflow: hidden;
+}
+.avatar{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+
+.numbers{
+  margin: 10rpx;
+  font-size: 24rpx;
+}
+.text{
+  margin-left: 10rpx;
+  font-size: 32rpx;
+}
+.photos{
+  height: 180rpx;
+  width: 718rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  padding-left: 32rpx;
+}
+.photo{
+  width: 250rpx;
+  height: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 8rpx;
+  position: relative;
+}
+.first {
+  margin-left: 154rpx;
+}
+.info.p{
+  position: absolute;
+  top: 60%;
+  left: 10rpx;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.date{
+  color: #fff;
+  font-size: 25rpx;
+  line-height: 40rpx;
+  margin-left: 4rpx;
+  float: left;
+}
+.bottom{
+  position: absolute;
+  top: 75%;
+  width: 100%;
+  border-radius: 20rpx;
+  background-color: #f5f8f8;
+}
+.btop{
+  overflow: hidden;
+  width: 690rpx;
+  margin: 30rpx 20rpx 20rpx 30rpx;
+}
+.title{
+  font-size: 40rpx;
+}
+.beHere{
+  float: right;
+  overflow: hidden;
+  width: 400rpx;
+  height: 40rpx;
+  margin-top: 10rpx;
+}
+.nickname{
+  float: right;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  margin-left: 8rpx;
+}
+.bMiddle1{
+  overflow: hidden;
+  margin-left: 30rpx;
+}
+.top-left{
+  width:456rpx;
+  height: 230rpx;
+  position: relative;
+}
+.top-right{
+  width: 230rpx;
+  position: relative;
+  height: 230rpx;
+}
+.bd{
+  border: 1px solid #fff;
+}
+.bot-left{
+  width: 228rpx;
+  position: relative;
+  height: 128rpx;
+}
+.bot-mid{
+  width: 224rpx;
+  position: relative;
+  height: 128rpx;
+}
+.bot-right{
+  width: 228rpx;
+  position: relative;
+  height: 128rpx;
+}
+.detail{
+  position: absolute;
+  overflow: hidden;
+  bottom: 10rpx;
+  left: 10rpx;
+  color: #fff;
+}
+.dname{
+  overflow: hidden;
+  font-size: 28rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 180rpx;
+}
+.dtitle{
+  overflow: hidden;
+  font-size: 20rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 180rpx;
+}
+.tips{
+  overflow: hidden;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+.tip{
+  float: left;
+  padding: 20rpx 30rpx 20rpx 20rpx;
+  background-color: #eee;
+  border-radius: 8rpx;
+  margin: 0 16rpx 16rpx 0;
+  position: relative;
+}
+.tipname{
+  font-size: 24rpx;
+}
+.tipnum{
+  font-size: 20rpx;
+  color: red;
+}
+.travel_guide_label{
+  font-size: 20rpx;
+  position: absolute;
+  top: -22rpx;
+  left: 10rpx;
+  padding: 5rpx 10rpx;
+  background-color: #ff508e;
+  color: #fff;
+}
+.tri{
+  height: 0px;
+  border-right: 16rpx solid transparent;
+  border-top: 16rpx solid #ff508e;
+  position: absolute;
+  top: 8rpx;
+  left: 10rpx;
+}
+.line{
+  border-top: 1px solid #eee;
+  width: 690rpx;
+  margin: 0 auto;
+}
+.bbottom{
+  overflow: hidden;
+  margin-top: 40rpx;
+}
+.article{
+  float: left;
+  margin-bottom: 10rpx;
+}
+.pic{
+  overflow: hidden;
+  border-radius: 8rpx 8rpx 0 0;
+  background-color: #ffffff;
+}
+.desc{
+  background-color: #ffffff;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  padding: 15rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  height: 82rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+.left,.right{
+  float: left;
+  width: 340rpx;
+}
+.left{
+  margin: 0 10rpx 0 30rpx;
+}
+.reads{
+  font-size: 20rpx;
+  background-color: #fff;
+  padding: 15rpx;
+  color: #717474;
+}
+.author{
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.ava{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 15rpx;
+  float: left;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.nname{
+  margin-left: 8rpx;
+  font-size: 20rpx;
+  line-height: 25rpx;
+  width: 200rpx;
+  float: left;
+}
+.pdate{
+  margin-left: 8rpx;
+  font-size: 18rpx;
+  line-height: 25rpx;
+  width: 200rpx;
+  float: left;
+  color: #717474;
+}
+.videosrc{
+  position: fixed;
+  top: 0;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.on{
+  display: block;
+}
+.videosrc .mask{
+  background:rgba(0,0,0,0.9);
+}
+.myVideo{
+  width: 100%;
+  position: fixed;
+  top: 30%;
+}
+.close{
+  width: 60rpx;
+  height: 60rpx;
+}
+.close{
+  position: fixed;
+  top: 80%;
+  left: 45%;
+}
+.nothing{
+  width: 550rpx;
+  margin-left: 100rpx;
+  margin-top: 20rpx;
 }

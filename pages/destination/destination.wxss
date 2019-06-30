@@ -2,12 +2,12 @@
 page,.destination{
     height: 100%;
 }
+.destination{
+  position: fixed;
+}
 image{
   width:100%;
   height: 100%;
-}
-.destination{
-  position: fixed;
 }
 .des_head{
     height: 80rpx;
@@ -55,9 +55,14 @@ image{
 }
 .des_cities{
   width:560rpx;
-  height:100%; 
+  height:1120rpx; 
   position: absolute;
   left: 180rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
 }
 .des_cities_content{
   overflow: hidden;
@@ -81,13 +86,19 @@ image{
 .des_img{
   width: 140rpx;
   height: 140rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
 }
 .des_area{
   float: left;
   margin:10rpx 0 0 36rpx;
 }
 .des_city_name{
+  width: 140rpx;
   font-size: 30rpx;
   text-align: center;
   padding: 10rpx 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
